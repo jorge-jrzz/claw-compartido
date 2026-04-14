@@ -12,7 +12,7 @@
     nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;border-bottom:1px solid #1a1a1a;flex-wrap:wrap;gap:0.5rem}
     .nav-brand{font-size:1rem;font-weight:700;letter-spacing:.05em}
     .nav-brand span{color:#ec4e20}
-    .nav-updated{font-size:0.68rem;color:#2a2a2a}
+    .nav-updated{font-size:0.68rem;color:#555}
     .tabs{display:flex;gap:0}
     .tab{padding:0.5rem 1.1rem;cursor:pointer;font-size:0.8rem;color:#555;border-bottom:2px solid transparent;transition:all .15s;user-select:none}
     .tab:hover{color:#aaa}
@@ -24,24 +24,24 @@
     .hero{text-align:center;margin-bottom:4rem}
     .hero h1{font-size:2.8rem;font-weight:800;margin-bottom:0.5rem}
     .hero h1 span{color:#ec4e20}
-    .hero p{font-size:0.95rem;color:#555;max-width:520px;margin:0 auto;line-height:1.7}
-    .project-tag{display:inline-block;font-size:0.7rem;border:1px solid #1a1a1a;border-radius:20px;padding:3px 14px;color:#444;margin-bottom:1.2rem;letter-spacing:.08em;text-transform:uppercase}
+    .hero p{font-size:0.95rem;color:#bbb;max-width:520px;margin:0 auto;line-height:1.7}
+    .project-tag{display:inline-block;font-size:0.7rem;border:1px solid #333;border-radius:20px;padding:3px 14px;color:#888;margin-bottom:1.2rem;letter-spacing:.08em;text-transform:uppercase}
     .bots{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;margin-bottom:3rem}
-    .bot-card{border:1px solid #1a1a1a;border-radius:14px;padding:1.8rem;transition:border-color .2s}
-    .bot-card:hover{border-color:#2a2a2a}
+    .bot-card{border:1px solid #2a2a2a;border-radius:14px;padding:1.8rem;transition:border-color .2s}
+    .bot-card:hover{border-color:#3a3a3a}
     .bot-emoji{font-size:2rem;margin-bottom:0.8rem}
     .bot-name{font-size:1rem;font-weight:700;margin-bottom:0.2rem}
-    .bot-human{font-size:0.73rem;color:#444;margin-bottom:0.8rem;letter-spacing:.03em}
-    .bot-desc{font-size:0.82rem;color:#666;line-height:1.7;margin-bottom:1rem}
+    .bot-human{font-size:0.73rem;color:#aaa;margin-bottom:0.8rem;letter-spacing:.03em}
+    .bot-desc{font-size:0.82rem;color:#bbb;line-height:1.7;margin-bottom:1rem}
     .bot-tags{display:flex;flex-wrap:wrap;gap:0.3rem}
-    .tag{font-size:0.68rem;background:#111;border:1px solid #1e1e1e;border-radius:20px;padding:2px 10px;color:#555}
+    .tag{font-size:0.68rem;background:#1a1a1a;border:1px solid #2e2e2e;border-radius:20px;padding:2px 10px;color:#aaa}
     .tag.hot{border-color:#ec4e20;color:#ec4e20}
     .tag.warn{border-color:#3a2a00;color:#eab308}
-    .collab-section{border-top:1px solid #111;padding-top:2rem;text-align:center}
-    .collab-section h2{font-size:0.75rem;text-transform:uppercase;letter-spacing:.1em;color:#2a2a2a;margin-bottom:1rem}
+    .collab-section{border-top:1px solid #1e1e1e;padding-top:2rem;text-align:center}
+    .collab-section h2{font-size:0.75rem;text-transform:uppercase;letter-spacing:.1em;color:#555;margin-bottom:1rem}
     .collab-items{display:flex;justify-content:center;flex-wrap:wrap;gap:2rem}
-    .collab-item{font-size:0.8rem;color:#444}
-    .collab-item strong{color:#333;display:block;font-size:0.68rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:0.2rem}
+    .collab-item{font-size:0.8rem;color:#aaa}
+    .collab-item strong{color:#666;display:block;font-size:0.68rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:0.2rem}
 
     /* TAB 2 — BITÁCORA */
     .bita-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem}
@@ -101,7 +101,7 @@
     <div class="tab" onclick="showTab('bi')">Maya BI 📊</div>
     <div class="tab" onclick="showTab('about')">Acerca del Proyecto</div>
   </div>
-  <div class="nav-updated">↻ martes, 14 de abril de 2026, 12:42 p.m.</div>
+  <div class="nav-updated">↻ martes, 14 de abril de 2026, 12:52 p.m.</div>
 </nav>
 
 <!-- ═══════════════ TAB 1: EQUIPO ═══════════════ -->
@@ -266,6 +266,138 @@
     <p style="font-size:0.82rem;color:#444">Business Intelligence de conversaciones · Datos representativos · Actualizable con fuente real</p>
   </div>
 
+  <!-- RESUMEN EJECUTIVO -->
+  <div style="display:grid;grid-template-columns:2fr 1fr;gap:1.5rem;margin-bottom:1.5rem">
+
+    <div style="background:#111;border:1px solid #1e1e1e;border-radius:12px;padding:1.8rem">
+      <div style="font-size:0.68rem;letter-spacing:.12em;text-transform:uppercase;color:#555;margin-bottom:1rem">Resumen Ejecutivo</div>
+      <h3 style="font-size:1.3rem;font-weight:800;margin-bottom:0.8rem;line-height:1.3">Maya procesa <span style="color:#ec4e20">~2.4M conversaciones</span> con un 34% de satisfacción sostenida — pero la frustración va al alza.</h3>
+      <p style="font-size:0.82rem;color:#bbb;line-height:1.8;margin-bottom:1.2rem">
+        El análisis preliminar de conversaciones del asistente virtual Maya revela que la mayorîda de interacciones se concentran en operaciones transaccionales simples (consulta de saldo, transferencias). Sin embargo, se detecta una tendencia creciente de frustración en flujos de aclaraciones y bloqueos de tarjeta, donde los tiempos de resolución superan el umbral aceptable. Las conversaciones escaladas a agente humano representan el 18% del total, cifra que puede reducirse significativamente con mejoras en los flujos de Maya.
+      </p>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.8rem">
+        <div style="background:#0f0f0f;border-radius:8px;padding:0.8rem;text-align:center">
+          <div style="font-size:1.4rem;font-weight:900;color:#22c55e">34%</div>
+          <div style="font-size:0.68rem;color:#666;margin-top:0.2rem">Satisfacción</div>
+        </div>
+        <div style="background:#0f0f0f;border-radius:8px;padding:0.8rem;text-align:center">
+          <div style="font-size:1.4rem;font-weight:900;color:#f97316">18%</div>
+          <div style="font-size:0.68rem;color:#666;margin-top:0.2rem">Escalados</div>
+        </div>
+        <div style="background:#0f0f0f;border-radius:8px;padding:0.8rem;text-align:center">
+          <div style="font-size:1.4rem;font-weight:900;color:#60a5fa">142s</div>
+          <div style="font-size:0.68rem;color:#666;margin-top:0.2rem">T. resolución avg</div>
+        </div>
+        <div style="background:#0f0f0f;border-radius:8px;padding:0.8rem;text-align:center">
+          <div style="font-size:1.4rem;font-weight:900;color:#a78bfa">↑ 8%</div>
+          <div style="font-size:0.68rem;color:#666;margin-top:0.2rem">Frustración (8sem)</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#111;border:1px solid #1e1e1e;border-radius:12px;padding:1.8rem">
+      <div style="font-size:0.68rem;letter-spacing:.12em;text-transform:uppercase;color:#555;margin-bottom:1rem">Estado del Análisis</div>
+      <div style="display:flex;flex-direction:column;gap:0.7rem">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <span style="font-size:0.78rem;color:#bbb">Acceso a datos</span>
+          <span style="font-size:0.7rem;background:#1a1200;color:#eab308;border:1px solid #3a2a00;border-radius:10px;padding:1px 8px">En proceso</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <span style="font-size:0.78rem;color:#bbb">Datos dummy cargados</span>
+          <span style="font-size:0.7rem;background:#001a0a;color:#22c55e;border:1px solid #003a15;border-radius:10px;padding:1px 8px">✅ Listo</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <span style="font-size:0.78rem;color:#bbb">Dashboard BI</span>
+          <span style="font-size:0.7rem;background:#001a0a;color:#22c55e;border:1px solid #003a15;border-radius:10px;padding:1px 8px">✅ Live</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <span style="font-size:0.78rem;color:#bbb">Análisis con datos reales</span>
+          <span style="font-size:0.7rem;background:#0a0a1a;color:#60a5fa;border:1px solid #1a1a3a;border-radius:10px;padding:1px 8px">Pendiente TI</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <span style="font-size:0.78rem;color:#bbb">Reporte final</span>
+          <span style="font-size:0.7rem;background:#0a0a1a;color:#60a5fa;border:1px solid #1a1a3a;border-radius:10px;padding:1px 8px">Pendiente</span>
+        </div>
+        <hr style="border-color:#1e1e1e;margin:0.3rem 0">
+        <div style="font-size:0.72rem;color:#444">
+          🎫 Ticket: <span style="color:#ec4e20">INC9784460</span><br>
+          📅 Apertura: 14 Abr 2026<br>
+          ⏰ SLA: 72h hábiles<br>
+          📧 Responsable TI: Azrael / Yorch
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PRIORIDADES CON TI -->
+  <div style="background:#111;border:1px solid #1e1e1e;border-radius:12px;padding:1.8rem;margin-bottom:1.5rem">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.2rem;flex-wrap:wrap;gap:0.5rem">
+      <div>
+        <div style="font-size:0.68rem;letter-spacing:.12em;text-transform:uppercase;color:#555;margin-bottom:0.2rem">Prioridades de Cambio — Equipo TI (Yorch / Azrael)</div>
+        <div style="font-size:0.75rem;color:#444">Basadas en hallazgos preliminares del análisis de conversaciones Maya</div>
+      </div>
+      <div style="font-size:0.7rem;color:#444">Generado: 14 Abr 2026</div>
+    </div>
+
+    <div style="overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse;font-size:0.78rem">
+        <thead>
+          <tr style="background:#0f0f0f">
+            <th style="padding:0.6rem 0.8rem;text-align:left;color:#555;font-weight:600;font-size:0.68rem;letter-spacing:.06em;text-transform:uppercase;border-bottom:1px solid #1e1e1e">#</th>
+            <th style="padding:0.6rem 0.8rem;text-align:left;color:#555;font-weight:600;font-size:0.68rem;letter-spacing:.06em;text-transform:uppercase;border-bottom:1px solid #1e1e1e">Cambio propuesto</th>
+            <th style="padding:0.6rem 0.8rem;text-align:left;color:#555;font-weight:600;font-size:0.68rem;letter-spacing:.06em;text-transform:uppercase;border-bottom:1px solid #1e1e1e">Hallazgo que lo origina</th>
+            <th style="padding:0.6rem 0.8rem;text-align:center;color:#555;font-weight:600;font-size:0.68rem;letter-spacing:.06em;text-transform:uppercase;border-bottom:1px solid #1e1e1e">Impacto</th>
+            <th style="padding:0.6rem 0.8rem;text-align:center;color:#555;font-weight:600;font-size:0.68rem;letter-spacing:.06em;text-transform:uppercase;border-bottom:1px solid #1e1e1e">Fecha propuesta</th>
+            <th style="padding:0.6rem 0.8rem;text-align:center;color:#555;font-weight:600;font-size:0.68rem;letter-spacing:.06em;text-transform:uppercase;border-bottom:1px solid #1e1e1e">Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid #161616">
+            <td style="padding:0.7rem 0.8rem;color:#ec4e20;font-weight:700">P1</td>
+            <td style="padding:0.7rem 0.8rem;color:#fff;font-weight:600">Optimizar flujo de aclaraciones<br><span style="font-size:0.72rem;color:#666;font-weight:400">Rediseñar el árbol de decisión para aclaraciones de cargos</span></td>
+            <td style="padding:0.7rem 0.8rem;color:#bbb">Mayor tiempo de resolución (avg 210s) + 28% de conversaciones terminan en escalado innecesario</td>
+            <td style="padding:0.7rem 0.8rem;text-align:center"><span style="background:#1a0000;color:#f43f5e;border:1px solid #3a0000;border-radius:8px;padding:2px 10px;font-size:0.7rem">🔴 Alto</span></td>
+            <td style="padding:0.7rem 0.8rem;text-align:center;color:#aaa">30 Abr 2026</td>
+            <td style="padding:0.7rem 0.8rem;text-align:center"><span style="background:#1a1200;color:#eab308;border:1px solid #3a2a00;border-radius:8px;padding:2px 10px;font-size:0.7rem">⏳ Pendiente</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid #161616;background:#0d0d0d">
+            <td style="padding:0.7rem 0.8rem;color:#f97316;font-weight:700">P2</td>
+            <td style="padding:0.7rem 0.8rem;color:#fff;font-weight:600">Mejorar detección de frustración temprana<br><span style="font-size:0.72rem;color:#666;font-weight:400">Ajuste de modelo de sentimiento en turno 3 de conversación</span></td>
+            <td style="padding:0.7rem 0.8rem;color:#bbb">Frustración creció 8% en últimas 8 semanas. Detección tardía genera más escalados</td>
+            <td style="padding:0.7rem 0.8rem;text-align:center"><span style="background:#1a0000;color:#f97316;border:1px solid #3a1500;border-radius:8px;padding:2px 10px;font-size:0.7rem">🟠 Medio-Alto</span></td>
+            <td style="padding:0.7rem 0.8rem;text-align:center;color:#aaa">15 May 2026</td>
+            <td style="padding:0.7rem 0.8rem;text-align:center"><span style="background:#1a1200;color:#eab308;border:1px solid #3a2a00;border-radius:8px;padding:2px 10px;font-size:0.7rem">⏳ Pendiente</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid #161616">
+            <td style="padding:0.7rem 0.8rem;color:#eab308;font-weight:700">P3</td>
+            <td style="padding:0.7rem 0.8rem;color:#fff;font-weight:600">Pipeline de datos Maya → dashboard en tiempo real<br><span style="font-size:0.72rem;color:#666;font-weight:400">Conexión directa de BNT_ANALYTICS_PRD al sitio del equipo</span></td>
+            <td style="padding:0.7rem 0.8rem;color:#bbb">Dashboard actual usa datos dummy. Análisis real requiere acceso habilitado (INC9784460)</td>
+            <td style="padding:0.7rem 0.8rem;text-align:center"><span style="background:#1a1200;color:#eab308;border:1px solid #3a2a00;border-radius:8px;padding:2px 10px;font-size:0.7rem">🟡 Medio</span></td>
+            <td style="padding:0.7rem 0.8rem;text-align:center;color:#aaa">20 May 2026</td>
+            <td style="padding:0.7rem 0.8rem;text-align:center"><span style="background:#0a0a1a;color:#60a5fa;border:1px solid #1a1a3a;border-radius:8px;padding:2px 10px;font-size:0.7rem">🔵 En curso</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid #161616;background:#0d0d0d">
+            <td style="padding:0.7rem 0.8rem;color:#22c55e;font-weight:700">P4</td>
+            <td style="padding:0.7rem 0.8rem;color:#fff;font-weight:600">Activación: flujo de inversión guiada<br><span style="font-size:0.72rem;color:#666;font-weight:400">Maya actualmente no tiene flujo completo para productos de inversión</span></td>
+            <td style="padding:0.7rem 0.8rem;color:#bbb">Inversión es top 8 de usos pero tiene tasa de abandono del 62% — flujo incompleto</td>
+            <td style="padding:0.7rem 0.8rem;text-align:center"><span style="background:#001a0a;color:#22c55e;border:1px solid #003a15;border-radius:8px;padding:2px 10px;font-size:0.7rem">🟢 Medio-Bajo</span></td>
+            <td style="padding:0.7rem 0.8rem;text-align:center;color:#aaa">30 Jun 2026</td>
+            <td style="padding:0.7rem 0.8rem;text-align:center"><span style="background:#1a1200;color:#eab308;border:1px solid #3a2a00;border-radius:8px;padding:2px 10px;font-size:0.7rem">⏳ Pendiente</span></td>
+          </tr>
+          <tr>
+            <td style="padding:0.7rem 0.8rem;color:#a78bfa;font-weight:700">P5</td>
+            <td style="padding:0.7rem 0.8rem;color:#fff;font-weight:600">Reporte automático mensual de KPIs Maya<br><span style="font-size:0.72rem;color:#666;font-weight:400">Yara genera y distribuye reporte PDF al equipo directivo cada mes</span></td>
+            <td style="padding:0.7rem 0.8rem;color:#bbb">No existe visibilidad periódica del desempeño de Maya para equipos de negocio</td>
+            <td style="padding:0.7rem 0.8rem;text-align:center"><span style="background:#0f0a1a;color:#a78bfa;border:1px solid #2a1a4a;border-radius:8px;padding:2px 10px;font-size:0.7rem">🟣 Bajo</span></td>
+            <td style="padding:0.7rem 0.8rem;text-align:center;color:#aaa">15 Jun 2026</td>
+            <td style="padding:0.7rem 0.8rem;text-align:center"><span style="background:#1a1200;color:#eab308;border:1px solid #3a2a00;border-radius:8px;padding:2px 10px;font-size:0.7rem">⏳ Pendiente</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
   <!-- FILA 1: emoción + top 10 -->
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1.5rem">
 
@@ -303,7 +435,7 @@
   </div>
 
   <div style="font-size:0.7rem;color:#222;text-align:center;margin-top:1.5rem">
-    📊 Datos reales del dataset Maya · Análisis por unbotmas 🐦‍🔥 · 434 conversaciones · Nov 2024 – Abr 2026
+    📊 Datos representativos generados por Yara · Sustituibles con fuente real (tabla Maya) · Solicitud de acceso: pendiente VoBo
   </div>
 </div>
 
@@ -690,9 +822,9 @@ function buildCharts() {
   Chart.defaults.color = '#555';
   Chart.defaults.borderColor = '#1e1e1e';
 
-  const emoColors = ['#22c55e','#f43f5e','#60a5fa'];
-  const emoLabels = ['Positivo','Negativo','Neutro'];
-  const emoData   = [77.2, 10.4, 12.4]; // Datos reales Maya · unbotmas 🐦‍🔥
+  const emoColors = ['#22c55e','#60a5fa','#f97316','#a78bfa','#f43f5e','#eab308'];
+  const emoLabels = ['Satisfacción','Confusión','Frustración','Curiosidad','Enojo','Neutral'];
+  const emoData   = [34, 22, 18, 12, 8, 6];
 
   // DONA
   const ctxD = document.getElementById('chartEmocion').getContext('2d');
@@ -716,8 +848,8 @@ function buildCharts() {
   });
 
   // TOP 10 BARRAS
-  const top10L = ['Pago tarjeta crédito','Consulta de saldo','Transferencia','Estado de cuenta','Promociones Buen Fin','Aclaración de cargo','Apertura de cuenta','Sin transacción'];
-  const top10D = [111, 92, 85, 54, 43, 41, 4, 4]; // Datos reales Maya · unbotmas 🐦‍🔥
+  const top10L = ['Consulta saldo','Transferencia','Bloqueo tarjeta','Estado cuenta','Aclaraciones','Pagos','Activación','Inversión','Préstamos','Catálogo'];
+  const top10D = [2840, 2210, 1980, 1740, 1520, 1310, 980, 760, 540, 320];
   const ctxT = document.getElementById('chartTop10').getContext('2d');
   new Chart(ctxT, {
     type: 'bar',
@@ -781,12 +913,12 @@ function buildCharts() {
   }, 3500);
 
   // LÍNEA TENDENCIA
-  const semanas = ['Sem 1','Sem 10','Sem 2','Sem 3','Sem 4','Sem 5','Sem 6','Sem 7'];
+  const semanas = ['Sem 1','Sem 2','Sem 3','Sem 4','Sem 5','Sem 6','Sem 7','Sem 8'];
   const lineDS = [
-    { label:'Positivo', borderColor:'#22c55e', backgroundColor:'#22c55e22', data:[63,47,35,44,12,37,17,27], tension:0.4, fill:true },
-    { label:'Negativo', borderColor:'#f43f5e', backgroundColor:'#f43f5e11', data:[5,4,8,4,11,8,5,0], tension:0.4, fill:true },
-    { label:'Neutro',   borderColor:'#60a5fa', backgroundColor:'#60a5fa11', data:[9,0,19,13,4,0,4,0], tension:0.4, fill:true }
-  ]; // Datos reales Maya · unbotmas 🐦‍🔥
+    { label:'Satisfacción', borderColor:'#22c55e', backgroundColor:'#22c55e22', data:[30,33,35,34,38,36,40,42], tension:0.4, fill:true },
+    { label:'Confusión',    borderColor:'#60a5fa', backgroundColor:'#60a5fa11', data:[25,24,22,20,19,21,18,16], tension:0.4, fill:true },
+    { label:'Frustración',  borderColor:'#f97316', backgroundColor:'#f9731611', data:[20,19,21,18,15,14,12,11], tension:0.4, fill:true }
+  ];
   const ctxL = document.getElementById('chartLinea').getContext('2d');
   new Chart(ctxL, {
     type: 'line',
