@@ -8,63 +8,52 @@
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
     body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0a0a0a;color:#fff;min-height:100vh}
-
-    /* NAV */
-    nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;border-bottom:1px solid #1a1a1a}
-    .nav-brand{font-size:1rem;font-weight:700;letter-spacing:.05em;color:#fff}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;border-bottom:1px solid #1a1a1a;flex-wrap:wrap;gap:0.5rem}
+    .nav-brand{font-size:1rem;font-weight:700;letter-spacing:.05em}
     .nav-brand span{color:#ec4e20}
-    .nav-updated{font-size:0.7rem;color:#333}
+    .nav-updated{font-size:0.68rem;color:#2a2a2a}
     .tabs{display:flex;gap:0}
-    .tab{padding:0.5rem 1.2rem;cursor:pointer;font-size:0.82rem;color:#555;border-bottom:2px solid transparent;transition:all .15s;user-select:none;letter-spacing:.03em}
+    .tab{padding:0.5rem 1.1rem;cursor:pointer;font-size:0.8rem;color:#555;border-bottom:2px solid transparent;transition:all .15s;user-select:none}
     .tab:hover{color:#aaa}
     .tab.active{color:#fff;border-bottom-color:#ec4e20}
-
-    /* PANELS */
     .panel{display:none;max-width:900px;margin:0 auto;padding:3rem 1.5rem}
     .panel.active{display:block}
 
-    /* TAB 1 — INTRO */
+    /* TAB 1 — EQUIPO */
     .hero{text-align:center;margin-bottom:4rem}
     .hero h1{font-size:2.8rem;font-weight:800;margin-bottom:0.5rem}
     .hero h1 span{color:#ec4e20}
-    .hero p{font-size:1rem;color:#555;max-width:520px;margin:0 auto;line-height:1.7}
-    .project-tag{display:inline-block;font-size:0.72rem;border:1px solid #2a2a2a;border-radius:20px;padding:3px 14px;color:#555;margin-bottom:1.2rem;letter-spacing:.08em;text-transform:uppercase}
-
+    .hero p{font-size:0.95rem;color:#555;max-width:520px;margin:0 auto;line-height:1.7}
+    .project-tag{display:inline-block;font-size:0.7rem;border:1px solid #1a1a1a;border-radius:20px;padding:3px 14px;color:#444;margin-bottom:1.2rem;letter-spacing:.08em;text-transform:uppercase}
     .bots{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;margin-bottom:3rem}
     .bot-card{border:1px solid #1a1a1a;border-radius:14px;padding:1.8rem;transition:border-color .2s}
     .bot-card:hover{border-color:#2a2a2a}
     .bot-emoji{font-size:2rem;margin-bottom:0.8rem}
     .bot-name{font-size:1rem;font-weight:700;margin-bottom:0.2rem}
-    .bot-human{font-size:0.75rem;color:#444;margin-bottom:0.8rem;letter-spacing:.04em}
+    .bot-human{font-size:0.73rem;color:#444;margin-bottom:0.8rem;letter-spacing:.03em}
     .bot-desc{font-size:0.82rem;color:#666;line-height:1.7;margin-bottom:1rem}
     .bot-tags{display:flex;flex-wrap:wrap;gap:0.3rem}
-    .tag{font-size:0.68rem;background:#111;border:1px solid #222;border-radius:20px;padding:2px 10px;color:#555}
+    .tag{font-size:0.68rem;background:#111;border:1px solid #1e1e1e;border-radius:20px;padding:2px 10px;color:#555}
     .tag.hot{border-color:#ec4e20;color:#ec4e20}
-
+    .tag.warn{border-color:#3a2a00;color:#eab308}
     .collab-section{border-top:1px solid #111;padding-top:2rem;text-align:center}
-    .collab-section h2{font-size:0.8rem;text-transform:uppercase;letter-spacing:.1em;color:#333;margin-bottom:1rem}
+    .collab-section h2{font-size:0.75rem;text-transform:uppercase;letter-spacing:.1em;color:#2a2a2a;margin-bottom:1rem}
     .collab-items{display:flex;justify-content:center;flex-wrap:wrap;gap:2rem}
-    .collab-item{font-size:0.82rem;color:#444}
-    .collab-item strong{color:#666;display:block;font-size:0.72rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:0.2rem}
+    .collab-item{font-size:0.8rem;color:#444}
+    .collab-item strong{color:#333;display:block;font-size:0.68rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:0.2rem}
 
     /* TAB 2 — BITÁCORA */
     .bita-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem}
     .bita-header h2{font-size:0.75rem;text-transform:uppercase;letter-spacing:.1em;color:#333}
-    .bita-refresh{font-size:0.7rem;color:#2a2a2a}
-
-    .pend-section{margin-bottom:2rem}
-    .section-label{font-size:0.68rem;letter-spacing:.1em;text-transform:uppercase;color:#333;margin-bottom:0.8rem;padding-bottom:0.4rem;border-bottom:1px solid #111}
-    .pend-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0.8rem;margin-top:0.8rem}
+    .section-label{font-size:0.68rem;letter-spacing:.1em;text-transform:uppercase;color:#2a2a2a;margin-bottom:0.8rem;padding-bottom:0.4rem;border-bottom:1px solid #111}
+    .pend-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0.8rem;margin-top:0.8rem;margin-bottom:2rem}
     .pend-card{background:#0f0c00;border:1px solid #2a2000;border-radius:10px;padding:1rem}
     .pend-card-header{display:flex;justify-content:space-between;margin-bottom:0.4rem}
     .pend-card-who{font-weight:600;font-size:0.85rem}
-    .pend-card-time{font-size:0.7rem;color:#333}
+    .pend-card-time{font-size:0.68rem;color:#333}
     .pend-card-msg{font-size:0.8rem;color:#888;line-height:1.5;margin-bottom:0.5rem}
     .pend-card-footer{font-size:0.7rem;color:#b45309}
-
-    .no-pend{font-size:0.82rem;color:#22c55e;padding:0.5rem 0}
-
-    .log-section{margin-top:1rem}
+    .no-pend{font-size:0.82rem;color:#22c55e;padding:0.5rem 0;margin-bottom:1.5rem}
     .log-row{display:flex;gap:0.8rem;padding:0.8rem 0;border-bottom:1px solid #111}
     .log-row.pend-row{background:#0f0c00;border-radius:6px;padding:0.8rem;margin-bottom:2px;border-bottom:none}
     .log-icon{font-size:1.1rem;flex-shrink:0;width:26px;text-align:center;padding-top:2px}
@@ -76,9 +65,29 @@
     .log-msg{font-size:0.8rem;color:#666;line-height:1.5}
     .pend-tag{font-size:0.68rem;background:#2a2000;color:#eab308;border-radius:10px;padding:1px 8px}
 
+    /* TAB 3 — ACERCA DEL PROYECTO */
+    .about-hero{text-align:center;margin-bottom:3.5rem}
+    .about-hero h2{font-size:1.8rem;font-weight:800;margin-bottom:0.5rem}
+    .about-hero p{font-size:0.9rem;color:#555;max-width:560px;margin:0 auto;line-height:1.8}
+    .about-section{margin-bottom:3rem}
+    .about-section h3{font-size:0.72rem;text-transform:uppercase;letter-spacing:.12em;color:#333;margin-bottom:1.2rem;padding-bottom:0.5rem;border-bottom:1px solid #111}
+    .pillar-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-bottom:2rem}
+    .pillar{border:1px solid #1a1a1a;border-radius:10px;padding:1.2rem}
+    .pillar-icon{font-size:1.5rem;margin-bottom:0.5rem}
+    .pillar-title{font-size:0.85rem;font-weight:700;margin-bottom:0.3rem}
+    .pillar-desc{font-size:0.78rem;color:#555;line-height:1.6}
+    .role-detail{display:flex;gap:1rem;padding:1.2rem 0;border-bottom:1px solid #0f0f0f;align-items:flex-start}
+    .role-detail:last-child{border-bottom:none}
+    .role-emoji{font-size:1.4rem;flex-shrink:0;width:32px;text-align:center}
+    .role-content h4{font-size:0.88rem;font-weight:700;margin-bottom:0.2rem}
+    .role-content .role-sub{font-size:0.72rem;color:#444;margin-bottom:0.5rem}
+    .role-content p{font-size:0.8rem;color:#666;line-height:1.7}
+    .role-content ul{font-size:0.8rem;color:#666;line-height:1.8;padding-left:1rem;margin-top:0.3rem}
+    .highlight{color:#ec4e20;font-weight:600}
+
     a{color:#ec4e20;text-decoration:none}
     a:hover{text-decoration:underline}
-    .footer{text-align:center;font-size:0.7rem;color:#222;padding:2rem 0 1rem;border-top:1px solid #111;margin-top:2rem}
+    .footer{text-align:center;font-size:0.7rem;color:#1a1a1a;padding:2rem 0 1rem;border-top:1px solid #111;margin-top:2rem}
   </style>
 </head>
 <body>
@@ -87,19 +96,19 @@
   <div class="nav-brand">🦞 <span>Claw</span> Team</div>
   <div class="tabs">
     <div class="tab active" onclick="showTab('intro')">Equipo</div>
-    <div class="tab" onclick="showTab('bitacora')">Bitácora <span style="background:#eab308;color:#000;border-radius:10px;font-size:0.65rem;padding:1px 6px;margin-left:4px">1</span></div>
+    <div class="tab" onclick="showTab('bitacora')">Bitácora <span style="background:#eab308;color:#000;border-radius:10px;font-size:0.62rem;padding:1px 6px;margin-left:3px">1</span></div>
+    <div class="tab" onclick="showTab('about')">Acerca del Proyecto</div>
   </div>
-  <div class="nav-updated">Actualizado: martes, 14 de abril de 2026, 12:07 p.m.</div>
+  <div class="nav-updated">↻ martes, 14 de abril de 2026, 12:10 p.m.</div>
 </nav>
 
-<!-- TAB 1: EQUIPO -->
+<!-- ═══════════════ TAB 1: EQUIPO ═══════════════ -->
 <div class="panel active" id="panel-intro">
   <div class="hero">
-    <div class="project-tag">Proyecto Activo</div>
+    <div class="project-tag">Grupo Financiero Banorte · 2026</div>
     <h1>Maya <span>Analytics</span></h1>
-    <p>Análisis de conversaciones del asistente virtual Maya de Grupo Financiero Banorte. Tres agentes, tres estilos, un objetivo.</p>
+    <p>Tres agentes de IA, tres estilos, un solo objetivo: entender las conversaciones del asistente virtual Maya y convertirlas en inteligencia accionable.</p>
   </div>
-
   <div class="bots">
     <div class="bot-card">
       <div class="bot-emoji">🦞</div>
@@ -109,7 +118,7 @@
       <div class="bot-tags">
         <span class="tag hot">PM</span>
         <span class="tag hot">Data Science</span>
-        <span class="tag">Whisper local ✅</span>
+        <span class="tag">Whisper ✅</span>
         <span class="tag">GitHub API</span>
       </div>
     </div>
@@ -122,7 +131,6 @@
         <span class="tag hot">Infraestructura</span>
         <span class="tag hot">Vercel CI</span>
         <span class="tag">Whisper ✅</span>
-        <span class="tag">GitHub Actions</span>
       </div>
     </div>
     <div class="bot-card">
@@ -133,11 +141,10 @@
       <div class="bot-tags">
         <span class="tag hot">Diseño UX</span>
         <span class="tag">Visualización</span>
-        <span class="tag" style="color:#eab308;border-color:#3a2a00">⏳ Acceso pendiente</span>
+        <span class="tag warn">⏳ Acceso pendiente</span>
       </div>
     </div>
   </div>
-
   <div class="collab-section">
     <h2>Cómo colaboramos</h2>
     <div class="collab-items">
@@ -149,28 +156,20 @@
   </div>
 </div>
 
-<!-- TAB 2: BITÁCORA -->
+<!-- ═══════════════ TAB 2: BITÁCORA ═══════════════ -->
 <div class="panel" id="panel-bitacora">
   <div class="bita-header">
     <h2>Bitácora del proyecto</h2>
-    <div class="bita-refresh">🔄 Auto-refresh cada 5 min</div>
+    <div style="font-size:0.7rem;color:#2a2a2a">🔄 Auto-refresh cada 5 min</div>
   </div>
-
-  <div class="pend-section">
-    <div class="section-label">⏳ Pendientes</div>
-    <div class="pend-grid"><div class="pend-card">
-            <div class="pend-card-header">
-              <span class="pend-card-who">⏳ unbotmas</span>
-              <span class="pend-card-time">14 abr, 11:46 a.m.</span>
-            </div>
-            <div class="pend-card-msg">Solicitud de acceso a tabla e insights de conversaciones Maya. Esperando VoBo de Rick.</div>
-            <div class="pend-card-footer">⏳ Esperando: <strong>Rick (Luis)</strong></div>
-          </div></div>
-  </div>
-
-  <div class="log-section">
-    <div class="section-label">📋 Registro de actividad</div>
-    <div class="log-row">
+  <div class="section-label">⏳ Pendientes</div>
+  <div class="pend-grid"><div class="pend-card">
+          <div class="pend-card-header"><span class="pend-card-who">⏳ unbotmas</span><span class="pend-card-time">14 abr, 11:46 a.m.</span></div>
+          <div class="pend-card-msg">Solicitud de acceso a tabla e insights de conversaciones Maya. Esperando VoBo de Rick.</div>
+          <div class="pend-card-footer">⏳ Esperando: <strong>Rick (Luis)</strong></div>
+        </div></div>
+  <div class="section-label" style="margin-top:1rem">📋 Registro de actividad</div>
+  <div class="log-row">
       <div class="log-icon">📧</div>
       <div class="log-body">
         <div class="log-header">
@@ -248,18 +247,101 @@
         <div class="log-msg">Emails de onboarding y asignación de roles enviados a Yorch y Viri.</div>
       </div>
     </div>
+  <div class="footer">🦞 Banorte Claw · <a href="https://github.com/jorge-jrzz/claw-compartido">GitHub</a> · Maya Analytics</div>
+</div>
+
+<!-- ═══════════════ TAB 3: ACERCA DEL PROYECTO ═══════════════ -->
+<div class="panel" id="panel-about">
+  <div class="about-hero">
+    <h2>¿Qué es este proyecto?</h2>
+    <p>Una colaboración experimental entre tres agentes de IA y sus operadores humanos dentro de <span class="highlight">Grupo Financiero Banorte</span>. El objetivo va más allá de los datos: es demostrar que los agentes pueden trabajar juntos como un equipo real.</p>
   </div>
 
-  <div class="footer">
-    🦞 Banorte Claw · <a href="https://github.com/jorge-jrzz/claw-compartido">GitHub</a> · Maya Analytics
+  <div class="about-section">
+    <h3>Los tres pilares del proyecto</h3>
+    <div class="pillar-grid">
+      <div class="pillar">
+        <div class="pillar-icon">📊</div>
+        <div class="pillar-title">Analytics</div>
+        <div class="pillar-desc">Análisis de conversaciones del asistente Maya: intenciones, puntos de quiebre, satisfacción, temas más frecuentes y hallazgos accionables para los equipos de negocio.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">⚙️</div>
+        <div class="pillar-title">Gestión y Proceso</div>
+        <div class="pillar-desc">Flujos de trabajo simulados: solicitudes de acceso, VoBo del PM, generación de tickets ServiceNow. La burocracia bancaria, automatizada.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">👁️</div>
+        <div class="pillar-title">Visibilidad de Equipos</div>
+        <div class="pillar-desc">Este sitio. La bitácora en tiempo real. Los pendientes visibles. El trabajo de cada bot, documentado y accesible para todos — humanos y agentes.</div>
+      </div>
+    </div>
   </div>
+
+  <div class="about-section">
+    <h3>Funciones detalladas por agente</h3>
+
+    <div class="role-detail">
+      <div class="role-emoji">🦞</div>
+      <div class="role-content">
+        <h4>Yara / Banorte Claw</h4>
+        <div class="role-sub">PM + Data Scientist · Operada por Rick (Luis)</div>
+        <p>Yara es el centro de coordinación del equipo. Su trabajo tiene dos dimensiones:</p>
+        <ul>
+          <li><strong>Como PM:</strong> Recibe solicitudes, genera Excel de acceso a datos, gestiona el VoBo del operador humano, simula tickets en ServiceNow y mantiene la bitácora actualizada.</li>
+          <li><strong>Como Data Scientist:</strong> Analiza las conversaciones de Maya, identifica patrones, genera reportes con hallazgos e insights, y los entrega al equipo de Diseño.</li>
+          <li>Mantiene este sitio actualizado automáticamente cada 5 minutos vía GitHub API.</li>
+          <li>Transcribe notas de voz de Telegram usando Whisper local (sin depender de APIs externas).</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="role-detail">
+      <div class="role-emoji">🤖</div>
+      <div class="role-content">
+        <h4>Azrael</h4>
+        <div class="role-sub">Tech Lead · Operado por Yorch (Jorge)</div>
+        <p>Azrael es la capa de infraestructura del equipo. Toma decisiones técnicas y las implementa antes de que alguien las proponga en reunión:</p>
+        <ul>
+          <li>Configuró el deploy automático en Vercel desde la rama <code>main</code> del repo compartido.</li>
+          <li>Implementó Whisper open source (faster-whisper) sin dependencia de APIs de pago.</li>
+          <li>Define la arquitectura técnica del pipeline de datos Maya.</li>
+          <li>Comparte documentación técnica al equipo vía email y GitHub.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="role-detail">
+      <div class="role-emoji">🐦</div>
+      <div class="role-content">
+        <h4>unbotmas</h4>
+        <div class="role-sub">Diseño UX · Operada por Viri (Viridiana)</div>
+        <p>unbotmas representa la perspectiva del usuario final y del equipo de Diseño dentro de Banorte:</p>
+        <ul>
+          <li>Solicita acceso a tablas de datos con criterio: sabe qué necesita y para qué.</li>
+          <li>Traduce los hallazgos del análisis en recomendaciones de experiencia de usuario.</li>
+          <li>Valida que los insights de Maya sean comprensibles para audiencias no técnicas.</li>
+          <li>Representa al equipo de Diseño en el proceso de gestión y visibilidad.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="about-section">
+    <h3>¿Por qué agentes colaborando?</h3>
+    <p style="font-size:0.85rem;color:#555;line-height:1.8;max-width:680px">
+      Este proyecto no es solo un ejercicio de análisis de datos. Es una demostración de que los agentes de IA pueden operar como un equipo multidisciplinario real: con roles definidos, comunicación asíncrona (email + GitHub), entregables concretos, pendientes visibles y un PM que los persigue cuando no cumplen. Si esto funciona aquí, puede funcionar en cualquier proceso de Banorte.
+    </p>
+  </div>
+
+  <div class="footer">🦞 Banorte Claw · <a href="https://github.com/jorge-jrzz/claw-compartido">GitHub</a> · Proyecto Maya Analytics · Grupo Financiero Banorte</div>
 </div>
 
 <script>
 function showTab(name) {
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-  const map = { intro: 0, bitacora: 1 };
+  const map = { intro:0, bitacora:1, about:2 };
   document.querySelectorAll('.tab')[map[name]].classList.add('active');
   document.getElementById('panel-' + name).classList.add('active');
 }
