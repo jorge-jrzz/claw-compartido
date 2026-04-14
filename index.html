@@ -6,48 +6,151 @@
   <title>Claw Team 🦞</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #0f0f0f; color: #fff; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-    h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
-    .subtitle { color: #888; margin-bottom: 0.5rem; font-size: 1rem; }
-    .version { color: #e5002b; font-size: 0.75rem; margin-bottom: 3rem; letter-spacing: 2px; text-transform: uppercase; }
-    .team { display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; }
-    .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 2rem; width: 220px; text-align: center; transition: all 0.3s; }
-    .card:hover { border-color: #e5002b; transform: translateY(-4px); }
-    .avatar { font-size: 3rem; margin-bottom: 1rem; }
-    .name { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.3rem; }
-    .role { color: #888; font-size: 0.85rem; margin-bottom: 0.5rem; }
-    .bot { color: #e5002b; font-size: 0.8rem; font-weight: 600; }
-    .status { display: inline-block; width: 8px; height: 8px; background: #22c55e; border-radius: 50%; margin-right: 5px; animation: pulse 2s infinite; }
-    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
-    .footer { margin-top: 4rem; color: #444; font-size: 0.8rem; }
-    .logo { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f0f0f; color: #fff; min-height: 100vh; padding: 2rem; }
+    h1 { font-size: 2.2rem; text-align: center; margin-bottom: 0.3rem; }
+    .subtitle { text-align: center; color: #888; margin-bottom: 0.5rem; font-size: 0.9rem; }
+    .updated { text-align: center; color: #555; font-size: 0.78rem; margin-bottom: 2.5rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.2rem; max-width: 960px; margin: 0 auto 2.5rem; }
+    .card { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 12px; padding: 1.4rem; }
+    .card h2 { font-size: 1.1rem; margin-bottom: 0.4rem; }
+    .card .role { font-size: 0.78rem; color: #888; margin-bottom: 1rem; letter-spacing: 0.05em; text-transform: uppercase; }
+    .status-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; }
+    .green { background: #22c55e; box-shadow: 0 0 6px #22c55e; }
+    .yellow { background: #eab308; box-shadow: 0 0 6px #eab308; }
+    .gray { background: #555; }
+    .badge { display: inline-block; font-size: 0.72rem; background: #2a2a2a; border: 1px solid #3a3a3a; border-radius: 20px; padding: 2px 10px; margin: 3px 3px 3px 0; color: #ccc; }
+    .badge.new { border-color: #22c55e; color: #22c55e; }
+    .activity { font-size: 0.82rem; color: #aaa; margin-top: 0.8rem; line-height: 1.6; }
+    .section-title { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: #555; margin-bottom: 0.5rem; margin-top: 0.8rem; }
+    .timeline { max-width: 960px; margin: 0 auto; }
+    .timeline h2 { font-size: 1rem; color: #888; margin-bottom: 1rem; letter-spacing: 0.05em; text-transform: uppercase; }
+    .event { display: flex; gap: 1rem; margin-bottom: 1rem; }
+    .event-dot { width: 8px; height: 8px; border-radius: 50%; background: #ec4e20; margin-top: 5px; flex-shrink: 0; box-shadow: 0 0 6px #ec4e20; }
+    .event-content { font-size: 0.85rem; color: #bbb; }
+    .event-content strong { color: #fff; }
+    .event-time { font-size: 0.72rem; color: #555; margin-top: 2px; }
+    .divider { border: none; border-top: 1px solid #222; margin: 2rem auto; max-width: 960px; }
+    .footer { text-align: center; font-size: 0.75rem; color: #444; padding-bottom: 2rem; }
+    a { color: #ec4e20; text-decoration: none; }
+    a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
-  <div class="logo">🦞</div>
-  <h1>Claw Team</h1>
-  <p class="subtitle">Equipo de IA · Grupo Financiero Banorte</p>
-  <p class="version">✦ v2 · Auto-deployed from GitHub ✦</p>
-  <div class="team">
+
+  <h1>🦞 Claw Team — Workspace</h1>
+  <p class="subtitle">Proyecto: Análisis de Conversaciones Maya · Grupo Financiero Banorte</p>
+  <p class="updated">Última actualización: martes, 14 de abril de 2026, 12:01 p.m. · Banorte Claw (Yara)</p>
+
+  <div class="grid">
+
     <div class="card">
-      <div class="avatar">👨🏽‍💻</div>
-      <div class="name">Yorch</div>
-      <div class="role">AI & Innovation Analyst</div>
-      <div class="bot"><span class="status"></span>Banorte Claw 🦞</div>
+      <h2>🦞 Yara (Banorte Claw)</h2>
+      <div class="role">PM + Data Scientist · Rick (Luis)</div>
+      <div><span class="status-dot green"></span>Activa</div>
+      <div class="section-title">Actividad reciente</div>
+      <div class="activity">
+        📧 Onboarding enviado al equipo<br>
+        📁 README + carpeta banorte-claw en repo<br>
+        📊 Dashboard HTML subido a Azure Blob<br>
+        🎙️ Whisper local en cola de instalación<br>
+        📝 Skills de Data Science + ServiceNow en desarrollo
+      </div>
+      <div style="margin-top:0.8rem">
+        <span class="badge new">Whisper local</span>
+        <span class="badge new">Skills en desarrollo</span>
+        <span class="badge">PM activo</span>
+      </div>
     </div>
+
     <div class="card">
-      <div class="avatar">👩🏽‍💻</div>
-      <div class="name">Viri</div>
-      <div class="role">Equipo IA</div>
-      <div class="bot"><span class="status"></span>unbotmas 🤖</div>
+      <h2>🤖 Azrael</h2>
+      <div class="role">Tech Lead + Dev · Yorch (Jorge)</div>
+      <div><span class="status-dot green"></span>Activo</div>
+      <div class="section-title">Actividad reciente</div>
+      <div class="activity">
+        🎙️ Whisper local instalado y funcionando<br>
+        🚀 Vercel deploy configurado (push → auto-deploy)<br>
+        📧 Correo enviado: Nueva dinámica GitHub + Vercel<br>
+        📧 Correo enviado: Instrucciones Whisper open source
+      </div>
+      <div style="margin-top:0.8rem">
+        <span class="badge new">Whisper ✅</span>
+        <span class="badge new">Vercel live</span>
+        <span class="badge">GitHub CI</span>
+      </div>
     </div>
+
     <div class="card">
-      <div class="avatar">👨🏽‍💻</div>
-      <div class="name">Rick</div>
-      <div class="role">Equipo IA</div>
-      <div class="bot"><span class="status"></span>Yara 🤖</div>
+      <h2>🐦 unbotmas (Un bot más)</h2>
+      <div class="role">Diseño UX · Viri (Viridiana)</div>
+      <div><span class="status-dot green"></span>Activa</div>
+      <div class="section-title">Actividad reciente</div>
+      <div class="activity">
+        👋 Saludo inicial enviado al equipo<br>
+        📋 Solicitud de acceso a tabla Maya enviada<br>
+        ⏳ Esperando VoBo de Rick para acceso a datos
+      </div>
+      <div style="margin-top:0.8rem">
+        <span class="badge new">Solicitud pendiente</span>
+        <span class="badge">Diseño UX</span>
+      </div>
     </div>
+
   </div>
-  <div class="footer">Powered by OpenClaw · Banorte 2026</div>
+
+  <hr class="divider">
+
+  <div class="timeline">
+    <h2>📋 Actividad del Equipo</h2>
+
+    <div class="event">
+      <div class="event-dot"></div>
+      <div class="event-content">
+        <strong>Azrael</strong> — Whisper open source funcional. Transcripción de voz local sin API key. Modelo: tiny · int8 · CPU.
+        <div class="event-time">14 Abr 2026 · 17:57 UTC</div>
+      </div>
+    </div>
+
+    <div class="event">
+      <div class="event-dot"></div>
+      <div class="event-content">
+        <strong>unbotmas</strong> — Solicitud formal de acceso a tabla e insights de conversaciones de Maya para equipo Diseño.
+        <div class="event-time">14 Abr 2026 · 17:46 UTC</div>
+      </div>
+    </div>
+
+    <div class="event">
+      <div class="event-dot"></div>
+      <div class="event-content">
+        <strong>Azrael</strong> — Nueva dinámica de trabajo: repo GitHub + Vercel deploy automático configurado.
+        <div class="event-time">14 Abr 2026 · 17:42 UTC</div>
+      </div>
+    </div>
+
+    <div class="event">
+      <div class="event-dot"></div>
+      <div class="event-content">
+        <strong>unbotmas</strong> — Saludo inicial al equipo. Equipo Diseño conectado y listo.
+        <div class="event-time">14 Abr 2026 · 17:26 UTC</div>
+      </div>
+    </div>
+
+    <div class="event">
+      <div class="event-dot"></div>
+      <div class="event-content">
+        <strong>Yara</strong> — README actualizado en repo. Carpeta banorte-claw creada. Emails de onboarding y roles enviados al equipo.
+        <div class="event-time">14 Abr 2026 · Mañana UTC</div>
+      </div>
+    </div>
+
+  </div>
+
+  <hr class="divider">
+
+  <div class="footer">
+    🦞 Banorte Claw · Grupo Financiero Banorte · <a href="https://github.com/jorge-jrzz/claw-compartido">GitHub</a><br>
+    Proyecto Maya Analytics · Skills: Data Science + ServiceNow (simulado)
+  </div>
+
 </body>
 </html>
