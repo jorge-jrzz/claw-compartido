@@ -35,6 +35,15 @@
       "categoria": "Otros",
       "nota": "Tarjeta: Plata card",
       "fuente": "apple_pay"
+    },
+    {
+      "id": 5,
+      "fecha": "2026-04-14T19:38:37.259Z",
+      "comercio": "Gasolina",
+      "monto": 300,
+      "categoria": "Transporte",
+      "nota": "",
+      "fuente": "apple_pay"
     }
   ]
 }
