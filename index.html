@@ -471,7 +471,154 @@
     </div>
   </div>
 
-  <!-- CAPACIDADES DE TOOLS -->
+
+  <!-- DIAGRAMA MULTI-AGENTE -->
+  <div style="max-width:960px;margin:0 auto;padding:4rem 2rem 0">
+    <div style="text-align:center;margin-bottom:2.5rem">
+      <div style="font-size:0.68rem;letter-spacing:.15em;text-transform:uppercase;color:#333;margin-bottom:0.5rem">Arquitectura de colaboración</div>
+      <h3 style="font-size:1.5rem;font-weight:800">¿Cómo trabajan juntos? <span style="color:#ec4e20">Diagrama del equipo</span></h3>
+    </div>
+
+    <div style="background:#0c0c0c;border:1px solid #1e1e1e;border-radius:16px;padding:2.5rem;overflow-x:auto">
+      <svg viewBox="0 0 860 420" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:860px;display:block;margin:0 auto;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
+
+        <!-- FONDO NODOS -->
+        <!-- HUMANOS: Rick, Yorch, Viri -->
+        <!-- AGENTES: Yara, Azrael, unbotmas -->
+        <!-- HUB CENTRAL: GitHub + Vercel -->
+
+        <!-- ── LÍNEAS / CONEXIONES ─────────────────────────────────────── -->
+        <!-- Rick <-> Yara -->
+        <line x1="100" y1="100" x2="220" y2="210" stroke="#ec4e20" stroke-width="1.5" stroke-dasharray="4,3" opacity=".5"/>
+        <!-- Yorch <-> Azrael -->
+        <line x1="760" y1="100" x2="640" y2="210" stroke="#60a5fa" stroke-width="1.5" stroke-dasharray="4,3" opacity=".5"/>
+        <!-- Viri <-> unbotmas -->
+        <line x1="430" y1="30" x2="430" y2="140" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="4,3" opacity=".5"/>
+
+        <!-- Yara <-> GitHub hub -->
+        <line x1="280" y1="230" x2="380" y2="230" stroke="#ec4e20" stroke-width="2" opacity=".6"/>
+        <!-- Azrael <-> GitHub hub -->
+        <line x1="580" y1="230" x2="480" y2="230" stroke="#60a5fa" stroke-width="2" opacity=".6"/>
+        <!-- unbotmas <-> GitHub hub -->
+        <line x1="430" y1="200" x2="430" y2="210" stroke="#22c55e" stroke-width="2" opacity=".6"/>
+
+        <!-- GitHub hub <-> Vercel -->
+        <line x1="430" y1="260" x2="430" y2="330" stroke="#f97316" stroke-width="2" opacity=".7"/>
+
+        <!-- Yara -> Rick (correo/VoBo) -->
+        <path d="M 230 200 Q 150 150 110 110" stroke="#ec4e20" stroke-width="1" fill="none" opacity=".3" stroke-dasharray="3,3"/>
+        <!-- Yara -> Viri (notificación) -->
+        <path d="M 250 205 Q 330 120 415 50" stroke="#22c55e" stroke-width="1" fill="none" opacity=".3" stroke-dasharray="3,3"/>
+        <!-- Yara -> Azrael (colaboración) -->
+        <line x1="310" y1="220" x2="610" y2="220" stroke="#888" stroke-width="1" opacity=".2" stroke-dasharray="5,4"/>
+
+        <!-- Email cloud -->
+        <line x1="160" y1="230" x2="220" y2="228" stroke="#ec4e20" stroke-width="1.5" opacity=".4" stroke-dasharray="3,3"/>
+        <line x1="640" y1="228" x2="700" y2="230" stroke="#60a5fa" stroke-width="1.5" opacity=".4" stroke-dasharray="3,3"/>
+
+        <!-- ── NODOS HUMANOS ────────────────────────────────────────────── -->
+        <!-- Rick -->
+        <circle cx="100" cy="90" r="36" fill="#1a0800" stroke="#ec4e20" stroke-width="1.5"/>
+        <text x="100" y="86" text-anchor="middle" fill="#fff" font-size="18">👤</text>
+        <text x="100" y="102" text-anchor="middle" fill="#ec4e20" font-size="9" font-weight="700">Rick</text>
+        <text x="100" y="114" text-anchor="middle" fill="#555" font-size="7.5">Dir. Innovación IA</text>
+
+        <!-- Yorch -->
+        <circle cx="760" cy="90" r="36" fill="#001018" stroke="#60a5fa" stroke-width="1.5"/>
+        <text x="760" y="86" text-anchor="middle" fill="#fff" font-size="18">👤</text>
+        <text x="760" y="102" text-anchor="middle" fill="#60a5fa" font-size="9" font-weight="700">Yorch</text>
+        <text x="760" y="114" text-anchor="middle" fill="#555" font-size="7.5">Dir. Arq. y Dev TI</text>
+
+        <!-- Viri -->
+        <circle cx="430" cy="35" r="30" fill="#001a0a" stroke="#22c55e" stroke-width="1.5"/>
+        <text x="430" y="31" text-anchor="middle" fill="#fff" font-size="15">👤</text>
+        <text x="430" y="45" text-anchor="middle" fill="#22c55e" font-size="8.5" font-weight="700">Viri</text>
+        <text x="430" y="56" text-anchor="middle" fill="#555" font-size="7">Dir. Diseño UX</text>
+
+        <!-- ── NODOS AGENTES ────────────────────────────────────────────── -->
+        <!-- Yara -->
+        <rect x="180" y="175" width="130" height="90" rx="12" fill="#150500" stroke="#ec4e20" stroke-width="1.8"/>
+        <text x="245" y="200" text-anchor="middle" fill="#fff" font-size="20">🦞</text>
+        <text x="245" y="218" text-anchor="middle" fill="#ec4e20" font-size="10" font-weight="800">Yara</text>
+        <text x="245" y="231" text-anchor="middle" fill="#888" font-size="7.5">PM · Data Scientist</text>
+        <text x="245" y="243" text-anchor="middle" fill="#555" font-size="7">Whisper · Email · Excel</text>
+        <text x="245" y="254" text-anchor="middle" fill="#555" font-size="7">GitHub API · Bitácora</text>
+
+        <!-- Azrael -->
+        <rect x="550" y="175" width="130" height="90" rx="12" fill="#00080f" stroke="#60a5fa" stroke-width="1.8"/>
+        <text x="615" y="200" text-anchor="middle" fill="#fff" font-size="20">🤖</text>
+        <text x="615" y="218" text-anchor="middle" fill="#60a5fa" font-size="10" font-weight="800">Azrael</text>
+        <text x="615" y="231" text-anchor="middle" fill="#888" font-size="7.5">Tech Lead · Dev TI</text>
+        <text x="615" y="243" text-anchor="middle" fill="#555" font-size="7">Vercel · Node.js · CI/CD</text>
+        <text x="615" y="254" text-anchor="middle" fill="#555" font-size="7">Apple Pay tracker</text>
+
+        <!-- unbotmas -->
+        <rect x="365" y="140" width="130" height="70" rx="12" fill="#001a00" stroke="#22c55e" stroke-width="1.8"/>
+        <text x="430" y="162" text-anchor="middle" fill="#fff" font-size="18">🐦🔥</text>
+        <text x="430" y="179" text-anchor="middle" fill="#22c55e" font-size="10" font-weight="800">unbotmas</text>
+        <text x="430" y="192" text-anchor="middle" fill="#888" font-size="7.5">Curaduría · Visibilidad UX</text>
+        <text x="430" y="203" text-anchor="middle" fill="#555" font-size="7">Viz · Solicitudes · GitHub</text>
+
+        <!-- ── HUB CENTRAL: GITHUB ─────────────────────────────────────── -->
+        <circle cx="430" cy="235" r="22" fill="#0d0d0d" stroke="#333" stroke-width="2"/>
+        <text x="430" y="231" text-anchor="middle" fill="#ccc" font-size="11">⚙️</text>
+        <text x="430" y="247" text-anchor="middle" fill="#666" font-size="7.5" font-weight="700">GitHub</text>
+
+        <!-- ── VERCEL DEPLOY ────────────────────────────────────────────── -->
+        <rect x="360" y="330" width="140" height="50" rx="10" fill="#0f0700" stroke="#f97316" stroke-width="1.5"/>
+        <text x="430" y="352" text-anchor="middle" fill="#f97316" font-size="11">🚀 Vercel</text>
+        <text x="430" y="366" text-anchor="middle" fill="#666" font-size="7.5">Auto-deploy on push</text>
+        <text x="430" y="377" text-anchor="middle" fill="#555" font-size="7">claw-compartido.vercel.app</text>
+
+        <!-- ── EMAIL NODES ──────────────────────────────────────────────── -->
+        <rect x="80" y="210" width="80" height="36" rx="8" fill="#111" stroke="#333" stroke-width="1"/>
+        <text x="120" y="229" text-anchor="middle" fill="#888" font-size="9">📧 Email</text>
+        <text x="120" y="241" text-anchor="middle" fill="#444" font-size="7">IMAP + SMTP</text>
+
+        <rect x="700" y="210" width="80" height="36" rx="8" fill="#111" stroke="#333" stroke-width="1"/>
+        <text x="740" y="229" text-anchor="middle" fill="#888" font-size="9">📧 Email</text>
+        <text x="740" y="241" text-anchor="middle" fill="#444" font-size="7">IMAP + SMTP</text>
+
+        <!-- ── LABELS DE FLECHAS ───────────────────────────────────────── -->
+        <text x="152" y="152" text-anchor="middle" fill="#ec4e20" font-size="7" opacity=".7">opera</text>
+        <text x="710" y="152" text-anchor="middle" fill="#60a5fa" font-size="7" opacity=".7">opera</text>
+        <text x="455" y="88" text-anchor="middle" fill="#22c55e" font-size="7" opacity=".7">opera</text>
+        <text x="328" y="225" text-anchor="middle" fill="#ec4e20" font-size="7" opacity=".7">push</text>
+        <text x="532" y="225" text-anchor="middle" fill="#60a5fa" font-size="7" opacity=".7">push</text>
+        <text x="456" y="250" text-anchor="middle" fill="#f97316" font-size="7" opacity=".7">trigger</text>
+
+        <!-- ── LEYENDA ──────────────────────────────────────────────────── -->
+        <line x1="60" y1="395" x2="90" y2="395" stroke="#ec4e20" stroke-width="2" stroke-dasharray="4,3"/>
+        <text x="95" y="398" fill="#555" font-size="8">Relación operador–agente</text>
+        <line x1="240" y1="395" x2="270" y2="395" stroke="#888" stroke-width="1.5"/>
+        <text x="275" y="398" fill="#555" font-size="8">Flujo de datos / push</text>
+        <line x1="420" y1="395" x2="450" y2="395" stroke="#f97316" stroke-width="2"/>
+        <text x="455" y="398" fill="#555" font-size="8">Deploy automático</text>
+        <line x1="590" y1="395" x2="620" y2="395" stroke="#333" stroke-width="1.5" stroke-dasharray="3,3"/>
+        <text x="625" y="398" fill="#555" font-size="8">Comunicación asíncrona</text>
+
+      </svg>
+    </div>
+
+    <!-- DESCRIPCIÓN DEL DIAGRAMA -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.2rem">
+      <div style="background:#0f0f0f;border:1px solid #1e1e1e;border-radius:10px;padding:1rem">
+        <div style="font-size:0.7rem;letter-spacing:.08em;text-transform:uppercase;color:#ec4e20;margin-bottom:0.5rem">🦞 Yara hace</div>
+        <div style="font-size:0.75rem;color:#888;line-height:1.7">Coordina el equipo · Gestiona solicitudes · Genera Excel y VoBo · Levanta tickets · Analiza datos de Maya · Mantiene la bitácora · Transcribe voz</div>
+      </div>
+      <div style="background:#0f0f0f;border:1px solid #1e1e1e;border-radius:10px;padding:1rem">
+        <div style="font-size:0.7rem;letter-spacing:.08em;text-transform:uppercase;color:#60a5fa;margin-bottom:0.5rem">🤖 Azrael hace</div>
+        <div style="font-size:0.75rem;color:#888;line-height:1.7">Configura infraestructura · Deploy en Vercel · Serverless functions · Apple Pay tracker · Dashboard finanzas · Documentación técnica</div>
+      </div>
+      <div style="background:#0f0f0f;border:1px solid #1e1e1e;border-radius:10px;padding:1rem">
+        <div style="font-size:0.7rem;letter-spacing:.08em;text-transform:uppercase;color:#22c55e;margin-bottom:0.5rem">🐦 unbotmas hace</div>
+        <div style="font-size:0.75rem;color:#888;line-height:1.7">Solicita acceso a datos · Genera visualizaciones · Cura insights para Diseño · Representa al usuario final · Valida entregables</div>
+      </div>
+    </div>
+  </div>
+
+
+    <!-- CAPACIDADES DE TOOLS -->
   <div style="max-width:960px;margin:0 auto;padding:4rem 2rem 0">
     <div style="font-size:0.68rem;letter-spacing:.15em;text-transform:uppercase;color:#333;margin-bottom:1.2rem">Capacidades tecnológicas del equipo</div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 2rem;margin-bottom:4rem">
