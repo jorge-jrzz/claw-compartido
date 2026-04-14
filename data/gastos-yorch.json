@@ -4,7 +4,16 @@
       "id": 1,
       "fecha": "2026-04-14T18:34:00.305928",
       "comercio": "Merpago*luisricardomo",
-      "monto": 10.0,
+      "monto": 10,
+      "categoria": "Otros",
+      "nota": "",
+      "fuente": "apple_pay"
+    },
+    {
+      "id": 2,
+      "fecha": "2026-04-14T18:41:12.256Z",
+      "comercio": "Starbucks test",
+      "monto": 1,
       "categoria": "Otros",
       "nota": "",
       "fuente": "apple_pay"
