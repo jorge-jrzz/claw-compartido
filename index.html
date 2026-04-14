@@ -3,154 +3,236 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="refresh" content="600">
   <title>Claw Team 🦞</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f0f0f; color: #fff; min-height: 100vh; padding: 2rem; }
-    h1 { font-size: 2.2rem; text-align: center; margin-bottom: 0.3rem; }
-    .subtitle { text-align: center; color: #888; margin-bottom: 0.5rem; font-size: 0.9rem; }
-    .updated { text-align: center; color: #555; font-size: 0.78rem; margin-bottom: 2.5rem; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.2rem; max-width: 960px; margin: 0 auto 2.5rem; }
-    .card { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 12px; padding: 1.4rem; }
-    .card h2 { font-size: 1.1rem; margin-bottom: 0.4rem; }
-    .card .role { font-size: 0.78rem; color: #888; margin-bottom: 1rem; letter-spacing: 0.05em; text-transform: uppercase; }
-    .status-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; }
-    .green { background: #22c55e; box-shadow: 0 0 6px #22c55e; }
-    .yellow { background: #eab308; box-shadow: 0 0 6px #eab308; }
-    .gray { background: #555; }
-    .badge { display: inline-block; font-size: 0.72rem; background: #2a2a2a; border: 1px solid #3a3a3a; border-radius: 20px; padding: 2px 10px; margin: 3px 3px 3px 0; color: #ccc; }
-    .badge.new { border-color: #22c55e; color: #22c55e; }
-    .activity { font-size: 0.82rem; color: #aaa; margin-top: 0.8rem; line-height: 1.6; }
-    .section-title { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: #555; margin-bottom: 0.5rem; margin-top: 0.8rem; }
-    .timeline { max-width: 960px; margin: 0 auto; }
-    .timeline h2 { font-size: 1rem; color: #888; margin-bottom: 1rem; letter-spacing: 0.05em; text-transform: uppercase; }
-    .event { display: flex; gap: 1rem; margin-bottom: 1rem; }
-    .event-dot { width: 8px; height: 8px; border-radius: 50%; background: #ec4e20; margin-top: 5px; flex-shrink: 0; box-shadow: 0 0 6px #ec4e20; }
-    .event-content { font-size: 0.85rem; color: #bbb; }
-    .event-content strong { color: #fff; }
-    .event-time { font-size: 0.72rem; color: #555; margin-top: 2px; }
-    .divider { border: none; border-top: 1px solid #222; margin: 2rem auto; max-width: 960px; }
-    .footer { text-align: center; font-size: 0.75rem; color: #444; padding-bottom: 2rem; }
-    a { color: #ec4e20; text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#fff;min-height:100vh;padding:1.5rem}
+    h1{font-size:2rem;text-align:center;margin-bottom:0.3rem}
+    .subtitle{text-align:center;color:#888;font-size:0.85rem;margin-bottom:0.3rem}
+    .updated{text-align:center;color:#444;font-size:0.75rem;margin-bottom:1.5rem}
+    /* TABS */
+    .tabs{display:flex;gap:0;max-width:960px;margin:0 auto 0;border-bottom:1px solid #2a2a2a}
+    .tab{padding:0.6rem 1.4rem;cursor:pointer;font-size:0.85rem;color:#666;border-bottom:2px solid transparent;transition:all .2s;user-select:none}
+    .tab:hover{color:#ccc}
+    .tab.active{color:#fff;border-bottom-color:#ec4e20}
+    .panel{display:none;max-width:960px;margin:0 auto;padding-top:1.5rem}
+    .panel.active{display:block}
+    /* STATUS CARDS */
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin-bottom:1.5rem}
+    .card{background:#1a1a1a;border:1px solid #2a2a2a;border-radius:10px;padding:1.2rem}
+    .card h2{font-size:1rem;margin-bottom:0.3rem}
+    .card .role{font-size:0.73rem;color:#666;margin-bottom:0.8rem;text-transform:uppercase;letter-spacing:.05em}
+    .dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:5px}
+    .green{background:#22c55e;box-shadow:0 0 5px #22c55e}
+    .badge{display:inline-block;font-size:0.7rem;background:#2a2a2a;border:1px solid #3a3a3a;border-radius:20px;padding:2px 9px;margin:2px 2px 2px 0;color:#bbb}
+    .badge.new{border-color:#22c55e;color:#22c55e}
+    .badge.warn{border-color:#eab308;color:#eab308}
+    .activity{font-size:0.8rem;color:#999;margin-top:0.6rem;line-height:1.7}
+    /* BITÁCORA */
+    .section-label{font-size:0.68rem;letter-spacing:.1em;text-transform:uppercase;color:#444;margin-bottom:0.8rem}
+    .pend-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:0.8rem;margin-bottom:1.8rem}
+    .pend-card{background:#1a1200;border:1px solid #3a2a00;border-radius:10px;padding:1rem}
+    .log-row{display:flex;gap:0.8rem;padding:0.75rem 0;border-bottom:1px solid #1a1a1a}
+    .log-icon{font-size:1.2rem;flex-shrink:0;width:28px;text-align:center;padding-top:1px}
+    .log-body{flex:1}
+    .log-header{display:flex;flex-wrap:wrap;align-items:center;gap:0.4rem;margin-bottom:0.2rem}
+    .log-who{font-weight:600;font-size:0.85rem}
+    .log-type{font-size:0.72rem;text-transform:uppercase;letter-spacing:.05em}
+    .log-time{font-size:0.7rem;color:#444;margin-left:auto}
+    .log-msg{font-size:0.82rem;color:#aaa;line-height:1.5}
+    hr{border:none;border-top:1px solid #1e1e1e;margin:1.5rem 0}
+    a{color:#ec4e20;text-decoration:none}
+    a:hover{text-decoration:underline}
+    .footer{text-align:center;font-size:0.73rem;color:#333;padding:1.5rem 0 0.5rem}
+    .refresh-note{text-align:center;font-size:0.7rem;color:#333;margin-bottom:1rem}
   </style>
 </head>
 <body>
 
-  <h1>🦞 Claw Team — Workspace</h1>
-  <p class="subtitle">Proyecto: Análisis de Conversaciones Maya · Grupo Financiero Banorte</p>
-  <p class="updated">Última actualización: martes, 14 de abril de 2026, 12:01 p.m. · Banorte Claw (Yara)</p>
+<h1>🦞 Claw Team</h1>
+<p class="subtitle">Maya Analytics · Grupo Financiero Banorte</p>
+<p class="updated">Actualizado: martes, 14 de abril de 2026, 12:04 p.m. · Auto-refresh cada 10 min</p>
 
+<div class="tabs">
+  <div class="tab active" onclick="showTab('status')">📊 Status del Equipo</div>
+  <div class="tab" onclick="showTab('bitacora')">📋 Bitácora</div>
+</div>
+
+<!-- PANEL STATUS -->
+<div class="panel active" id="panel-status">
   <div class="grid">
-
     <div class="card">
       <h2>🦞 Yara (Banorte Claw)</h2>
       <div class="role">PM + Data Scientist · Rick (Luis)</div>
-      <div><span class="status-dot green"></span>Activa</div>
-      <div class="section-title">Actividad reciente</div>
+      <div><span class="dot green"></span>Activa</div>
       <div class="activity">
         📧 Onboarding enviado al equipo<br>
-        📁 README + carpeta banorte-claw en repo<br>
-        📊 Dashboard HTML subido a Azure Blob<br>
-        🎙️ Whisper local en cola de instalación<br>
-        📝 Skills de Data Science + ServiceNow en desarrollo
+        🎙️ Whisper local instalado y funcionando<br>
+        📁 whisper-stt.py en repo<br>
+        📝 Skills Maya en desarrollo
       </div>
-      <div style="margin-top:0.8rem">
-        <span class="badge new">Whisper local</span>
+      <div style="margin-top:0.7rem">
+        <span class="badge new">Whisper ✅</span>
         <span class="badge new">Skills en desarrollo</span>
         <span class="badge">PM activo</span>
       </div>
     </div>
-
     <div class="card">
       <h2>🤖 Azrael</h2>
-      <div class="role">Tech Lead + Dev · Yorch (Jorge)</div>
-      <div><span class="status-dot green"></span>Activo</div>
-      <div class="section-title">Actividad reciente</div>
+      <div class="role">Tech Lead · Yorch (Jorge)</div>
+      <div><span class="dot green"></span>Activo</div>
       <div class="activity">
-        🎙️ Whisper local instalado y funcionando<br>
-        🚀 Vercel deploy configurado (push → auto-deploy)<br>
-        📧 Correo enviado: Nueva dinámica GitHub + Vercel<br>
-        📧 Correo enviado: Instrucciones Whisper open source
+        🎙️ Whisper funcional (tiny·int8·CPU)<br>
+        🚀 Vercel deploy automático configurado<br>
+        📧 Instrucciones compartidas al equipo
       </div>
-      <div style="margin-top:0.8rem">
+      <div style="margin-top:0.7rem">
         <span class="badge new">Whisper ✅</span>
         <span class="badge new">Vercel live</span>
-        <span class="badge">GitHub CI</span>
       </div>
     </div>
-
     <div class="card">
-      <h2>🐦 unbotmas (Un bot más)</h2>
+      <h2>🐦 unbotmas</h2>
       <div class="role">Diseño UX · Viri (Viridiana)</div>
-      <div><span class="status-dot green"></span>Activa</div>
-      <div class="section-title">Actividad reciente</div>
+      <div><span class="dot green"></span>Activa</div>
       <div class="activity">
-        👋 Saludo inicial enviado al equipo<br>
+        👋 Conectada y lista<br>
         📋 Solicitud de acceso a tabla Maya enviada<br>
-        ⏳ Esperando VoBo de Rick para acceso a datos
+        ⏳ Esperando VoBo de Rick
       </div>
-      <div style="margin-top:0.8rem">
-        <span class="badge new">Solicitud pendiente</span>
+      <div style="margin-top:0.7rem">
+        <span class="badge warn">⏳ Solicitud pendiente</span>
         <span class="badge">Diseño UX</span>
       </div>
     </div>
-
   </div>
-
-  <hr class="divider">
-
-  <div class="timeline">
-    <h2>📋 Actividad del Equipo</h2>
-
-    <div class="event">
-      <div class="event-dot"></div>
-      <div class="event-content">
-        <strong>Azrael</strong> — Whisper open source funcional. Transcripción de voz local sin API key. Modelo: tiny · int8 · CPU.
-        <div class="event-time">14 Abr 2026 · 17:57 UTC</div>
-      </div>
-    </div>
-
-    <div class="event">
-      <div class="event-dot"></div>
-      <div class="event-content">
-        <strong>unbotmas</strong> — Solicitud formal de acceso a tabla e insights de conversaciones de Maya para equipo Diseño.
-        <div class="event-time">14 Abr 2026 · 17:46 UTC</div>
-      </div>
-    </div>
-
-    <div class="event">
-      <div class="event-dot"></div>
-      <div class="event-content">
-        <strong>Azrael</strong> — Nueva dinámica de trabajo: repo GitHub + Vercel deploy automático configurado.
-        <div class="event-time">14 Abr 2026 · 17:42 UTC</div>
-      </div>
-    </div>
-
-    <div class="event">
-      <div class="event-dot"></div>
-      <div class="event-content">
-        <strong>unbotmas</strong> — Saludo inicial al equipo. Equipo Diseño conectado y listo.
-        <div class="event-time">14 Abr 2026 · 17:26 UTC</div>
-      </div>
-    </div>
-
-    <div class="event">
-      <div class="event-dot"></div>
-      <div class="event-content">
-        <strong>Yara</strong> — README actualizado en repo. Carpeta banorte-claw creada. Emails de onboarding y roles enviados al equipo.
-        <div class="event-time">14 Abr 2026 · Mañana UTC</div>
-      </div>
-    </div>
-
+  <div style="text-align:center;font-size:0.78rem;color:#444">
+    🌐 <a href="https://github.com/jorge-jrzz/claw-compartido">GitHub repo</a> · Deploy automático en Vercel
   </div>
+</div>
 
-  <hr class="divider">
+<!-- PANEL BITÁCORA -->
+<div class="panel" id="panel-bitacora">
 
-  <div class="footer">
-    🦞 Banorte Claw · Grupo Financiero Banorte · <a href="https://github.com/jorge-jrzz/claw-compartido">GitHub</a><br>
-    Proyecto Maya Analytics · Skills: Data Science + ServiceNow (simulado)
+  
+  <div class="section-label">⏳ Pendientes (1)</div>
+  <div class="pend-grid">
+    
+      <div class="pend-card">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.4rem">
+          <span style="font-weight:600">⏳ unbotmas</span>
+          <span style="font-size:0.72rem;color:#555">14 abr, 11:46 a.m.</span>
+        </div>
+        <div style="font-size:0.85rem;color:#ccc;margin-bottom:0.5rem">Solicitud de acceso a tabla e insights de conversaciones Maya. Esperando VoBo de Rick.</div>
+        <div style="font-size:0.72rem;color:#eab308">⏳ Esperando: <strong>Rick (Luis)</strong></div>
+      </div>
   </div>
+  
+
+  <div class="section-label">📋 Registro de actividad</div>
+  <div>
+    
+      <div class="log-row">
+        <div class="log-icon">📧</div>
+        <div class="log-body">
+          <div class="log-header">
+            <span class="log-who">Azrael</span>
+            <span class="log-type" style="color:#60a5fa">email</span>
+            
+            <span class="log-time">14 abr, 11:57 a.m.</span>
+          </div>
+          <div class="log-msg">Envió instrucciones de Whisper open source (faster-whisper tiny · CPU · int8). Sin API key necesaria.</div>
+        </div>
+      </div>
+      <div class="log-row">
+        <div class="log-icon">⏳</div>
+        <div class="log-body">
+          <div class="log-header">
+            <span class="log-who">unbotmas</span>
+            <span class="log-type" style="color:#eab308">pendiente</span>
+            <span style="font-size:0.7rem;background:#3a2a00;color:#eab308;border:1px solid #eab308;border-radius:10px;padding:1px 8px;margin-left:6px">⏳ Pendiente → Rick (Luis)</span>
+            <span class="log-time">14 abr, 11:46 a.m.</span>
+          </div>
+          <div class="log-msg">Solicitud de acceso a tabla e insights de conversaciones Maya. Esperando VoBo de Rick.</div>
+        </div>
+      </div>
+      <div class="log-row">
+        <div class="log-icon">🚀</div>
+        <div class="log-body">
+          <div class="log-header">
+            <span class="log-who">Azrael</span>
+            <span class="log-type" style="color:#22c55e">entregable</span>
+            
+            <span class="log-time">14 abr, 11:42 a.m.</span>
+          </div>
+          <div class="log-msg">Configuró Vercel deploy automático desde rama main. Sitio live: claw-compartido.vercel.app</div>
+        </div>
+      </div>
+      <div class="log-row">
+        <div class="log-icon">📧</div>
+        <div class="log-body">
+          <div class="log-header">
+            <span class="log-who">unbotmas</span>
+            <span class="log-type" style="color:#60a5fa">email</span>
+            
+            <span class="log-time">14 abr, 11:26 a.m.</span>
+          </div>
+          <div class="log-msg">Saludo inicial al equipo. Equipo Diseño conectado y listo.</div>
+        </div>
+      </div>
+      <div class="log-row">
+        <div class="log-icon">📁</div>
+        <div class="log-body">
+          <div class="log-header">
+            <span class="log-who">Yara</span>
+            <span class="log-type" style="color:#22c55e">entregable</span>
+            
+            <span class="log-time">14 abr, 11:00 a.m.</span>
+          </div>
+          <div class="log-msg">Subió whisper-stt.py a banorte-claw/ en el repo. Whisper local instalado y probado.</div>
+        </div>
+      </div>
+      <div class="log-row">
+        <div class="log-icon">📊</div>
+        <div class="log-body">
+          <div class="log-header">
+            <span class="log-who">Yara</span>
+            <span class="log-type" style="color:#22c55e">entregable</span>
+            
+            <span class="log-time">14 abr, 10:30 a.m.</span>
+          </div>
+          <div class="log-msg">Dashboard HTML con datos dummy de Maya subido a Azure Blob Storage.</div>
+        </div>
+      </div>
+      <div class="log-row">
+        <div class="log-icon">📧</div>
+        <div class="log-body">
+          <div class="log-header">
+            <span class="log-who">Yara</span>
+            <span class="log-type" style="color:#60a5fa">email</span>
+            
+            <span class="log-time">14 abr, 09:00 a.m.</span>
+          </div>
+          <div class="log-msg">Emails de onboarding y asignación de roles enviados a Yorch y Viri.</div>
+        </div>
+      </div>
+  </div>
+</div>
+
+<div class="footer">
+  🦞 Banorte Claw · <a href="https://github.com/jorge-jrzz/claw-compartido">GitHub</a> · Proyecto Maya Analytics
+</div>
+
+<script>
+function showTab(name) {
+  document.querySelectorAll('.tab').forEach((t,i) => t.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  const tabs = ['status','bitacora'];
+  document.querySelectorAll('.tab')[tabs.indexOf(name)].classList.add('active');
+  document.getElementById('panel-' + name).classList.add('active');
+}
+</script>
 
 </body>
 </html>
