@@ -7,15 +7,14 @@ const CHAT_ID = "1341397907";
 async function notifyTelegram(gasto) {
   const emojis = { Comida: "🍔", Café: "☕", Transport: "🚗", Super: "🛒", Otros: "💳" };
   const emoji = emojis[gasto.categoria] || "💳";
-  const safeName = gasto.comercio.replace(/[<>&]/g, c => ({"<":"&lt;",">":"&gt;","&":"&amp;"}[c]));
-  const msg = `${emoji} ${safeName}
-💵 $${gasto.monto.toFixed(2)} MXN — ${gasto.categoria}${gasto.nota ? '
-📝 ' + gasto.nota : ''}`;
-  await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ chat_id: CHAT_ID, text: msg, parse_mode: "HTML" })
-  });
+  const msg = `${emoji} ${gasto.comercio}\n💵 $${gasto.monto.toFixed(2)} MXN — ${gasto.categoria}${gasto.nota ? '\n📝 ' + gasto.nota : ''}`;
+  try {
+    await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ chat_id: CHAT_ID, text: msg })
+    });
+  } catch(e) { /* no bloquear si falla */ }
 }
 
 function parseMonto(val) {
@@ -56,15 +55,11 @@ module.exports = async function handler(req, res) {
   if (!token) return res.status(500).json({ error: "GITHUB_TOKEN not configured" });
 
   const body = req.body || {};
-
-  // Debug: log what we received
-  const received = { comercio: body.comercio, monto: body.monto, card: body.card, categoria: body.categoria };
-
   const comercio = body.comercio ? String(body.comercio).trim() : null;
   const monto = parseMonto(body.monto);
 
   if (!comercio || monto === null) {
-    return res.status(400).json({ error: "Faltan campos válidos", received });
+    return res.status(400).json({ error: "Faltan campos válidos", received: body });
   }
 
   const gasto = {
@@ -79,9 +74,9 @@ module.exports = async function handler(req, res) {
     content.gastos = content.gastos || [];
     const nuevo = { id: content.gastos.length + 1, fecha: new Date().toISOString(), ...gasto, fuente: "apple_pay" };
     content.gastos.push(nuevo);
-    const status = await pushFile(token, content, sha, `💳 ${safeName} $${gasto.monto}`);
+    await pushFile(token, content, sha, `💳 ${gasto.comercio} $${gasto.monto}`);
     await notifyTelegram(nuevo);
-    return res.status(200).json({ ok: true, gasto: nuevo, github: status });
+    return res.status(200).json({ ok: true, gasto: nuevo });
   } catch (e) {
     return res.status(500).json({ error: e.message });
   }
