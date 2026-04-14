@@ -17,6 +17,15 @@
       "categoria": "Otros",
       "nota": "",
       "fuente": "apple_pay"
+    },
+    {
+      "id": 3,
+      "fecha": "2026-04-14T18:59:18.431Z",
+      "comercio": "Merpago*luisricardomo",
+      "monto": 10,
+      "categoria": "Otros",
+      "nota": "Tarjeta: Plata card",
+      "fuente": "apple_pay"
     }
   ]
 }
