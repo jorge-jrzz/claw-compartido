@@ -7,11 +7,14 @@ const CHAT_ID = "1341397907";
 async function notifyTelegram(gasto) {
   const emojis = { Comida: "🍔", Café: "☕", Transport: "🚗", Super: "🛒", Otros: "💳" };
   const emoji = emojis[gasto.categoria] || "💳";
-  const msg = `${emoji} *${gasto.comercio}*\n💵 $${gasto.monto.toFixed(2)} MXN — ${gasto.categoria}${gasto.nota ? '\n📝 ' + gasto.nota : ''}`;
+  const safeName = gasto.comercio.replace(/[<>&]/g, c => ({"<":"&lt;",">":"&gt;","&":"&amp;"}[c]));
+  const msg = `${emoji} ${safeName}
+💵 $${gasto.monto.toFixed(2)} MXN — ${gasto.categoria}${gasto.nota ? '
+📝 ' + gasto.nota : ''}`;
   await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ chat_id: CHAT_ID, text: msg, parse_mode: "Markdown" })
+    body: JSON.stringify({ chat_id: CHAT_ID, text: msg, parse_mode: "HTML" })
   });
 }
 
@@ -76,7 +79,7 @@ module.exports = async function handler(req, res) {
     content.gastos = content.gastos || [];
     const nuevo = { id: content.gastos.length + 1, fecha: new Date().toISOString(), ...gasto, fuente: "apple_pay" };
     content.gastos.push(nuevo);
-    const status = await pushFile(token, content, sha, `💳 ${gasto.comercio} $${gasto.monto}`);
+    const status = await pushFile(token, content, sha, `💳 ${safeName} $${gasto.monto}`);
     await notifyTelegram(nuevo);
     return res.status(200).json({ ok: true, gasto: nuevo, github: status });
   } catch (e) {
