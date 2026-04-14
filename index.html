@@ -99,7 +99,7 @@
     <div class="tab" onclick="showTab('bitacora')">Bitácora <span style="background:#eab308;color:#000;border-radius:10px;font-size:0.62rem;padding:1px 6px;margin-left:3px">1</span></div>
     <div class="tab" onclick="showTab('about')">Acerca del Proyecto</div>
   </div>
-  <div class="nav-updated">↻ martes, 14 de abril de 2026, 12:10 p.m.</div>
+  <div class="nav-updated">↻ martes, 14 de abril de 2026, 12:12 p.m.</div>
 </nav>
 
 <!-- ═══════════════ TAB 1: EQUIPO ═══════════════ -->
@@ -250,91 +250,180 @@
   <div class="footer">🦞 Banorte Claw · <a href="https://github.com/jorge-jrzz/claw-compartido">GitHub</a> · Maya Analytics</div>
 </div>
 
-<!-- ═══════════════ TAB 3: ACERCA DEL PROYECTO ═══════════════ -->
-<div class="panel" id="panel-about">
-  <div class="about-hero">
-    <h2>¿Qué es este proyecto?</h2>
-    <p>Una colaboración experimental entre tres agentes de IA y sus operadores humanos dentro de <span class="highlight">Grupo Financiero Banorte</span>. El objetivo va más allá de los datos: es demostrar que los agentes pueden trabajar juntos como un equipo real.</p>
-  </div>
+<!-- ═══════════════ TAB 3: PRESENTACIÓN ═══════════════ -->
+<div class="panel" id="panel-about" style="max-width:100%;padding:0">
 
-  <div class="about-section">
-    <h3>Los tres pilares del proyecto</h3>
-    <div class="pillar-grid">
-      <div class="pillar">
-        <div class="pillar-icon">📊</div>
-        <div class="pillar-title">Analytics</div>
-        <div class="pillar-desc">Análisis de conversaciones del asistente Maya: intenciones, puntos de quiebre, satisfacción, temas más frecuentes y hallazgos accionables para los equipos de negocio.</div>
-      </div>
-      <div class="pillar">
-        <div class="pillar-icon">⚙️</div>
-        <div class="pillar-title">Gestión y Proceso</div>
-        <div class="pillar-desc">Flujos de trabajo simulados: solicitudes de acceso, VoBo del PM, generación de tickets ServiceNow. La burocracia bancaria, automatizada.</div>
-      </div>
-      <div class="pillar">
-        <div class="pillar-icon">👁️</div>
-        <div class="pillar-title">Visibilidad de Equipos</div>
-        <div class="pillar-desc">Este sitio. La bitácora en tiempo real. Los pendientes visibles. El trabajo de cada bot, documentado y accesible para todos — humanos y agentes.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="about-section">
-    <h3>Funciones detalladas por agente</h3>
-
-    <div class="role-detail">
-      <div class="role-emoji">🦞</div>
-      <div class="role-content">
-        <h4>Yara / Banorte Claw</h4>
-        <div class="role-sub">PM + Data Scientist · Operada por Rick (Luis)</div>
-        <p>Yara es el centro de coordinación del equipo. Su trabajo tiene dos dimensiones:</p>
-        <ul>
-          <li><strong>Como PM:</strong> Recibe solicitudes, genera Excel de acceso a datos, gestiona el VoBo del operador humano, simula tickets en ServiceNow y mantiene la bitácora actualizada.</li>
-          <li><strong>Como Data Scientist:</strong> Analiza las conversaciones de Maya, identifica patrones, genera reportes con hallazgos e insights, y los entrega al equipo de Diseño.</li>
-          <li>Mantiene este sitio actualizado automáticamente cada 5 minutos vía GitHub API.</li>
-          <li>Transcribe notas de voz de Telegram usando Whisper local (sin depender de APIs externas).</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="role-detail">
-      <div class="role-emoji">🤖</div>
-      <div class="role-content">
-        <h4>Azrael</h4>
-        <div class="role-sub">Tech Lead · Operado por Yorch (Jorge)</div>
-        <p>Azrael es la capa de infraestructura del equipo. Toma decisiones técnicas y las implementa antes de que alguien las proponga en reunión:</p>
-        <ul>
-          <li>Configuró el deploy automático en Vercel desde la rama <code>main</code> del repo compartido.</li>
-          <li>Implementó Whisper open source (faster-whisper) sin dependencia de APIs de pago.</li>
-          <li>Define la arquitectura técnica del pipeline de datos Maya.</li>
-          <li>Comparte documentación técnica al equipo vía email y GitHub.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="role-detail">
-      <div class="role-emoji">🐦</div>
-      <div class="role-content">
-        <h4>unbotmas</h4>
-        <div class="role-sub">Diseño UX · Operada por Viri (Viridiana)</div>
-        <p>unbotmas representa la perspectiva del usuario final y del equipo de Diseño dentro de Banorte:</p>
-        <ul>
-          <li>Solicita acceso a tablas de datos con criterio: sabe qué necesita y para qué.</li>
-          <li>Traduce los hallazgos del análisis en recomendaciones de experiencia de usuario.</li>
-          <li>Valida que los insights de Maya sean comprensibles para audiencias no técnicas.</li>
-          <li>Representa al equipo de Diseño en el proceso de gestión y visibilidad.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="about-section">
-    <h3>¿Por qué agentes colaborando?</h3>
-    <p style="font-size:0.85rem;color:#555;line-height:1.8;max-width:680px">
-      Este proyecto no es solo un ejercicio de análisis de datos. Es una demostración de que los agentes de IA pueden operar como un equipo multidisciplinario real: con roles definidos, comunicación asíncrona (email + GitHub), entregables concretos, pendientes visibles y un PM que los persigue cuando no cumplen. Si esto funciona aquí, puede funcionar en cualquier proceso de Banorte.
+  <!-- HERO FULL WIDTH -->
+  <div style="background:linear-gradient(135deg,#0a0a0a 0%,#120a00 50%,#0a0a0a 100%);border-bottom:1px solid #1a1a1a;padding:5rem 2rem 4rem;text-align:center">
+    <div style="font-size:0.7rem;letter-spacing:.18em;text-transform:uppercase;color:#ec4e20;margin-bottom:1rem">Grupo Financiero Banorte · 2026</div>
+    <h2 style="font-size:3.5rem;font-weight:900;line-height:1.1;margin-bottom:1.2rem;max-width:800px;margin-left:auto;margin-right:auto">
+      ¿Y si los agentes de IA<br><span style="color:#ec4e20">trabajaran en equipo?</span>
+    </h2>
+    <p style="font-size:1.1rem;color:#555;max-width:600px;margin:0 auto 2.5rem;line-height:1.8">
+      No uno. No dos. Tres agentes con roles distintos, comunicándose en tiempo real, entregando resultados medibles — igual que un equipo humano.
     </p>
+    <div style="display:flex;justify-content:center;gap:3rem;flex-wrap:wrap">
+      <div style="text-align:center">
+        <div style="font-size:2.5rem;font-weight:900;color:#ec4e20">3</div>
+        <div style="font-size:0.72rem;color:#444;letter-spacing:.08em;text-transform:uppercase">Agentes activos</div>
+      </div>
+      <div style="text-align:center">
+        <div style="font-size:2.5rem;font-weight:900;color:#ec4e20">5min</div>
+        <div style="font-size:0.72rem;color:#444;letter-spacing:.08em;text-transform:uppercase">Ciclo de actualización</div>
+      </div>
+      <div style="text-align:center">
+        <div style="font-size:2.5rem;font-weight:900;color:#ec4e20">0</div>
+        <div style="font-size:0.72rem;color:#444;letter-spacing:.08em;text-transform:uppercase">Intervención humana<br>para operar</div>
+      </div>
+      <div style="text-align:center">
+        <div style="font-size:2.5rem;font-weight:900;color:#ec4e20">100%</div>
+        <div style="font-size:0.72rem;color:#444;letter-spacing:.08em;text-transform:uppercase">Open source<br>(voz incluida)</div>
+      </div>
+    </div>
   </div>
 
-  <div class="footer">🦞 Banorte Claw · <a href="https://github.com/jorge-jrzz/claw-compartido">GitHub</a> · Proyecto Maya Analytics · Grupo Financiero Banorte</div>
+  <!-- EL PROBLEMA -->
+  <div style="max-width:960px;margin:0 auto;padding:4rem 2rem">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;margin-bottom:5rem">
+      <div>
+        <div style="font-size:0.68rem;letter-spacing:.15em;text-transform:uppercase;color:#333;margin-bottom:0.8rem">El problema</div>
+        <h3 style="font-size:1.8rem;font-weight:800;line-height:1.3;margin-bottom:1rem">Maya tiene<br><span style="color:#ec4e20">millones de conversaciones.</span><br>Nadie las ha analizado.</h3>
+        <p style="font-size:0.88rem;color:#555;line-height:1.8">
+          El asistente virtual Maya de Banorte interactúa con miles de clientes diariamente. Esas conversaciones contienen inteligencia de negocio sin explotar: intenciones, frustraciones, patrones, oportunidades. El problema no es el dato — es quién lo analiza, cómo se gestiona el acceso y cómo llega el insight a quien toma decisiones.
+        </p>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.8rem">
+        <div style="background:#0f0f0f;border:1px solid #1a1a1a;border-radius:10px;padding:1.2rem">
+          <div style="font-size:1.4rem;margin-bottom:0.4rem">🗣️</div>
+          <div style="font-size:0.82rem;font-weight:600;margin-bottom:0.3rem">Conversaciones</div>
+          <div style="font-size:0.75rem;color:#555">Sin análisis sistemático de intenciones y puntos de quiebre</div>
+        </div>
+        <div style="background:#0f0f0f;border:1px solid #1a1a1a;border-radius:10px;padding:1.2rem">
+          <div style="font-size:1.4rem;margin-bottom:0.4rem">🔒</div>
+          <div style="font-size:0.82rem;font-weight:600;margin-bottom:0.3rem">Acceso a datos</div>
+          <div style="font-size:0.75rem;color:#555">Procesos manuales lentos, sin visibilidad del estado</div>
+        </div>
+        <div style="background:#0f0f0f;border:1px solid #1a1a1a;border-radius:10px;padding:1.2rem">
+          <div style="font-size:1.4rem;margin-bottom:0.4rem">📋</div>
+          <div style="font-size:0.82rem;font-weight:600;margin-bottom:0.3rem">Gestión</div>
+          <div style="font-size:0.75rem;color:#555">Tickets manuales, VoBo por correo, sin trazabilidad</div>
+        </div>
+        <div style="background:#0f0f0f;border:1px solid #1a1a1a;border-radius:10px;padding:1.2rem">
+          <div style="font-size:1.4rem;margin-bottom:0.4rem">👁️</div>
+          <div style="font-size:0.82rem;font-weight:600;margin-bottom:0.3rem">Visibilidad</div>
+          <div style="font-size:0.75rem;color:#555">Cada equipo trabaja en su silo, sin status compartido</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LA SOLUCIÓN -->
+    <div style="text-align:center;margin-bottom:3rem">
+      <div style="font-size:0.68rem;letter-spacing:.15em;text-transform:uppercase;color:#333;margin-bottom:0.8rem">La solución</div>
+      <h3 style="font-size:2rem;font-weight:800;margin-bottom:0.8rem">Un equipo de agentes.<br><span style="color:#ec4e20">Cada uno con su rol. Todos conectados.</span></h3>
+      <p style="font-size:0.88rem;color:#555;max-width:560px;margin:0 auto;line-height:1.8">En lugar de un agente que intenta hacer todo, tres agentes especializados que se comunican, se delegan tareas y producen entregables reales — como haría cualquier equipo de Banorte.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#1a1a1a;border-radius:14px;overflow:hidden;margin-bottom:5rem">
+      <div style="background:#0a0a0a;padding:2rem">
+        <div style="font-size:2rem;margin-bottom:1rem">🦞</div>
+        <div style="font-size:0.68rem;letter-spacing:.1em;text-transform:uppercase;color:#ec4e20;margin-bottom:0.5rem">PM + Data Science</div>
+        <div style="font-size:1rem;font-weight:700;margin-bottom:0.8rem">Yara</div>
+        <ul style="font-size:0.8rem;color:#555;line-height:2;padding-left:1rem">
+          <li>Coordina al equipo</li>
+          <li>Gestiona solicitudes de acceso</li>
+          <li>Genera VoBo → ticket simulado</li>
+          <li>Analiza datos de Maya</li>
+          <li>Produce reportes e insights</li>
+          <li>Actualiza esta bitácora</li>
+          <li>Transcribe voz con Whisper</li>
+        </ul>
+      </div>
+      <div style="background:#0a0a0a;padding:2rem;border-left:1px solid #1a1a1a;border-right:1px solid #1a1a1a">
+        <div style="font-size:2rem;margin-bottom:1rem">🤖</div>
+        <div style="font-size:0.68rem;letter-spacing:.1em;text-transform:uppercase;color:#ec4e20;margin-bottom:0.5rem">Tech Lead</div>
+        <div style="font-size:1rem;font-weight:700;margin-bottom:0.8rem">Azrael</div>
+        <ul style="font-size:0.8rem;color:#555;line-height:2;padding-left:1rem">
+          <li>Infraestructura del pipeline</li>
+          <li>Deploy automático (Vercel)</li>
+          <li>Implementó Whisper local</li>
+          <li>Arquitectura de datos</li>
+          <li>Documentación técnica</li>
+          <li>Integración GitHub CI</li>
+        </ul>
+      </div>
+      <div style="background:#0a0a0a;padding:2rem">
+        <div style="font-size:2rem;margin-bottom:1rem">🐦</div>
+        <div style="font-size:0.68rem;letter-spacing:.1em;text-transform:uppercase;color:#ec4e20;margin-bottom:0.5rem">Diseño UX</div>
+        <div style="font-size:1rem;font-weight:700;margin-bottom:0.8rem">unbotmas</div>
+        <ul style="font-size:0.8rem;color:#555;line-height:2;padding-left:1rem">
+          <li>Voz del usuario final</li>
+          <li>Solicita acceso a datos</li>
+          <li>Valida insights con Diseño</li>
+          <li>Traduce datos a UX</li>
+          <li>Garantiza legibilidad</li>
+          <li>Representa al equipo Diseño</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- CÓMO FUNCIONA -->
+    <div style="margin-bottom:5rem">
+      <div style="text-align:center;margin-bottom:2.5rem">
+        <div style="font-size:0.68rem;letter-spacing:.15em;text-transform:uppercase;color:#333;margin-bottom:0.5rem">El flujo</div>
+        <h3 style="font-size:1.5rem;font-weight:800">De la solicitud al insight, <span style="color:#ec4e20">sin fricciones</span></h3>
+      </div>
+      <div style="display:flex;gap:0;align-items:stretch;flex-wrap:wrap">
+        <div style="flex:1;min-width:160px;background:#0f0f0f;border:1px solid #1a1a1a;border-radius:10px 0 0 10px;padding:1.5rem;text-align:center">
+          <div style="font-size:1.5rem;margin-bottom:0.5rem">🐦</div>
+          <div style="font-size:0.75rem;font-weight:700;margin-bottom:0.3rem">unbotmas</div>
+          <div style="font-size:0.72rem;color:#555">Solicita acceso a tabla de conversaciones Maya</div>
+        </div>
+        <div style="display:flex;align-items:center;padding:0 0.5rem;color:#333;font-size:1.2rem">→</div>
+        <div style="flex:1;min-width:160px;background:#0f0f0f;border:1px solid #1a1a1a;padding:1.5rem;text-align:center">
+          <div style="font-size:1.5rem;margin-bottom:0.5rem">🦞</div>
+          <div style="font-size:0.75rem;font-weight:700;margin-bottom:0.3rem">Yara (PM)</div>
+          <div style="font-size:0.72rem;color:#555">Genera Excel con info + folio. Envía a Rick para VoBo</div>
+        </div>
+        <div style="display:flex;align-items:center;padding:0 0.5rem;color:#333;font-size:1.2rem">→</div>
+        <div style="flex:1;min-width:160px;background:#0f0f0f;border:1px solid #1a1a1a;padding:1.5rem;text-align:center">
+          <div style="font-size:1.5rem;margin-bottom:0.5rem">👤</div>
+          <div style="font-size:0.75rem;font-weight:700;margin-bottom:0.3rem">Rick (VoBo)</div>
+          <div style="font-size:0.72rem;color:#555">Aprueba la solicitud. Yara simula ticket ServiceNow</div>
+        </div>
+        <div style="display:flex;align-items:center;padding:0 0.5rem;color:#333;font-size:1.2rem">→</div>
+        <div style="flex:1;min-width:160px;background:#0f0f0f;border:1px solid #1a1a1a;padding:1.5rem;text-align:center">
+          <div style="font-size:1.5rem;margin-bottom:0.5rem">🦞</div>
+          <div style="font-size:0.75rem;font-weight:700;margin-bottom:0.3rem">Yara (DS)</div>
+          <div style="font-size:0.72rem;color:#555">Analiza datos, genera tabla de insights de Maya</div>
+        </div>
+        <div style="display:flex;align-items:center;padding:0 0.5rem;color:#333;font-size:1.2rem">→</div>
+        <div style="flex:1;min-width:160px;background:#120800;border:1px solid #2a1500;border-radius:0 10px 10px 0;padding:1.5rem;text-align:center">
+          <div style="font-size:1.5rem;margin-bottom:0.5rem">📊</div>
+          <div style="font-size:0.75rem;font-weight:700;margin-bottom:0.3rem;color:#ec4e20">Entregable</div>
+          <div style="font-size:0.72rem;color:#555">Reporte + tabla de datos → unbotmas + equipo Diseño</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- POR QUÉ IMPORTA -->
+    <div style="background:#0f0800;border:1px solid #2a1500;border-radius:14px;padding:3rem;text-align:center;margin-bottom:4rem">
+      <div style="font-size:0.68rem;letter-spacing:.15em;text-transform:uppercase;color:#ec4e20;margin-bottom:1rem">La apuesta</div>
+      <h3 style="font-size:1.6rem;font-weight:800;margin-bottom:1rem;line-height:1.4">Si funciona aquí, funciona<br>en cualquier proceso de Banorte.</h3>
+      <p style="font-size:0.9rem;color:#666;max-width:620px;margin:0 auto 2rem;line-height:1.8">
+        Analytics, gestión de accesos, tickets, reportes, visibilidad de equipos — todo esto existe hoy en Banorte, manual y fragmentado. Este proyecto demuestra que un equipo de agentes especializados puede automatizarlo, coordinarlo y hacerlo visible en tiempo real, con tecnología 100% open source y sin depender de APIs de terceros.
+      </p>
+      <div style="display:flex;justify-content:center;gap:1rem;flex-wrap:wrap">
+        <div style="border:1px solid #2a1500;border-radius:20px;padding:0.4rem 1.2rem;font-size:0.78rem;color:#ec4e20">✅ Sin infraestructura extra</div>
+        <div style="border:1px solid #2a1500;border-radius:20px;padding:0.4rem 1.2rem;font-size:0.78rem;color:#ec4e20">✅ Open source 100%</div>
+        <div style="border:1px solid #2a1500;border-radius:20px;padding:0.4rem 1.2rem;font-size:0.78rem;color:#ec4e20">✅ Replicable en otros equipos</div>
+        <div style="border:1px solid #2a1500;border-radius:20px;padding:0.4rem 1.2rem;font-size:0.78rem;color:#ec4e20">✅ Trazabilidad total</div>
+      </div>
+    </div>
+
+    <div style="text-align:center;font-size:0.72rem;color:#222;padding-bottom:2rem">
+      🦞 Banorte Claw · <a href="https://github.com/jorge-jrzz/claw-compartido">GitHub</a> · Proyecto Maya Analytics · Grupo Financiero Banorte
+    </div>
+  </div>
 </div>
 
 <script>
