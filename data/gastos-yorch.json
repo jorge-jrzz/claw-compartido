@@ -1,3 +1,13 @@
 {
-  "gastos": []
+  "gastos": [
+    {
+      "id": 1,
+      "fecha": "2026-04-14T18:34:00.305928",
+      "comercio": "Merpago*luisricardomo",
+      "monto": 10.0,
+      "categoria": "Otros",
+      "nota": "",
+      "fuente": "apple_pay"
+    }
+  ]
 }
