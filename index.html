@@ -8,15 +8,15 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0a0a0a;color:#fff;min-height:100vh}
-    nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;border-bottom:1px solid #1a1a1a;flex-wrap:wrap;gap:0.5rem}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#ffffff;color:#111;min-height:100vh}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;border-bottom:1px solid #e5e5e5;background:#fff;flex-wrap:wrap;gap:0.5rem}
     .nav-brand{font-size:1rem;font-weight:700;letter-spacing:.05em}
     .nav-brand span{color:#ec4e20}
-    .nav-updated{font-size:0.68rem;color:#555}
+    .nav-updated{font-size:0.68rem;color:#888}
     .tabs{display:flex;gap:0}
-    .tab{padding:0.5rem 1.1rem;cursor:pointer;font-size:0.8rem;color:#555;border-bottom:2px solid transparent;transition:all .15s;user-select:none}
-    .tab:hover{color:#aaa}
-    .tab.active{color:#fff;border-bottom-color:#ec4e20}
+    .tab{padding:0.5rem 1.1rem;cursor:pointer;font-size:0.8rem;color:#888;border-bottom:2px solid transparent;transition:all .15s;user-select:none}
+    .tab:hover{color:#bbb}
+    .tab.active{color:#111;border-bottom-color:#e8001c}
     .panel{display:none;max-width:900px;margin:0 auto;padding:3rem 1.5rem}
     .panel.active{display:block}
 
@@ -24,66 +24,66 @@
     .hero{text-align:center;margin-bottom:4rem}
     .hero h1{font-size:2.8rem;font-weight:800;margin-bottom:0.5rem}
     .hero h1 span{color:#ec4e20}
-    .hero p{font-size:0.95rem;color:#bbb;max-width:520px;margin:0 auto;line-height:1.7}
-    .project-tag{display:inline-block;font-size:0.7rem;border:1px solid #333;border-radius:20px;padding:3px 14px;color:#888;margin-bottom:1.2rem;letter-spacing:.08em;text-transform:uppercase}
+    .hero p{font-size:0.95rem;color:#555;max-width:520px;margin:0 auto;line-height:1.7}
+    .project-tag{display:inline-block;font-size:0.7rem;border:1px solid #ccc;border-radius:20px;padding:3px 14px;color:#777;margin-bottom:1.2rem;letter-spacing:.08em;text-transform:uppercase}
     .bots{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;margin-bottom:3rem}
     .bot-card{border:1px solid #2a2a2a;border-radius:14px;padding:1.8rem;transition:border-color .2s}
-    .bot-card:hover{border-color:#3a3a3a}
+    .bot-card:hover{border-color:#bbb}
     .bot-emoji{font-size:2rem;margin-bottom:0.8rem}
     .bot-name{font-size:1rem;font-weight:700;margin-bottom:0.2rem}
-    .bot-human{font-size:0.73rem;color:#aaa;margin-bottom:0.8rem;letter-spacing:.03em}
-    .bot-desc{font-size:0.82rem;color:#bbb;line-height:1.7;margin-bottom:1rem}
+    .bot-human{font-size:0.73rem;color:#777;margin-bottom:0.8rem;letter-spacing:.03em}
+    .bot-desc{font-size:0.82rem;color:#555;line-height:1.7;margin-bottom:1rem}
     .bot-tags{display:flex;flex-wrap:wrap;gap:0.3rem}
-    .tag{font-size:0.68rem;background:#1a1a1a;border:1px solid #2e2e2e;border-radius:20px;padding:2px 10px;color:#aaa}
-    .tag.hot{border-color:#ec4e20;color:#ec4e20}
-    .tag.warn{border-color:#3a2a00;color:#eab308}
-    .collab-section{border-top:1px solid #1e1e1e;padding-top:2rem;text-align:center}
-    .collab-section h2{font-size:0.75rem;text-transform:uppercase;letter-spacing:.1em;color:#555;margin-bottom:1rem}
+    .tag{font-size:0.68rem;background:#f5f5f5;border:1px solid #ddd;border-radius:20px;padding:2px 10px;color:#777}
+    .tag.hot{border-color:#e8001c;color:#e8001c}
+    .tag.warn{border-color:#d97706;color:#d97706}
+    .collab-section{border-top:1px solid #eee;padding-top:2rem;text-align:center}
+    .collab-section h2{font-size:0.75rem;text-transform:uppercase;letter-spacing:.1em;color:#999;margin-bottom:1rem}
     .collab-items{display:flex;justify-content:center;flex-wrap:wrap;gap:2rem}
-    .collab-item{font-size:0.8rem;color:#aaa}
-    .collab-item strong{color:#666;display:block;font-size:0.68rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:0.2rem}
+    .collab-item{font-size:0.8rem;color:#666}
+    .collab-item strong{color:#999;display:block;font-size:0.68rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:0.2rem}
 
     /* TAB 2 — BITÁCORA */
     .bita-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem}
-    .bita-header h2{font-size:0.75rem;text-transform:uppercase;letter-spacing:.1em;color:#333}
-    .section-label{font-size:0.68rem;letter-spacing:.1em;text-transform:uppercase;color:#2a2a2a;margin-bottom:0.8rem;padding-bottom:0.4rem;border-bottom:1px solid #111}
+    .bita-header h2{font-size:0.75rem;text-transform:uppercase;letter-spacing:.1em;color:#bbb}
+    .section-label{font-size:0.68rem;letter-spacing:.1em;text-transform:uppercase;color:#999;margin-bottom:0.8rem;padding-bottom:0.4rem;border-bottom:1px solid #eee}
     .pend-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0.8rem;margin-top:0.8rem;margin-bottom:2rem}
-    .pend-card{background:#0f0c00;border:1px solid #2a2000;border-radius:10px;padding:1rem}
+    .pend-card{background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:1rem}
     .pend-card-header{display:flex;justify-content:space-between;margin-bottom:0.4rem}
     .pend-card-who{font-weight:600;font-size:0.85rem}
-    .pend-card-time{font-size:0.68rem;color:#333}
+    .pend-card-time{font-size:0.68rem;color:#bbb}
     .pend-card-msg{font-size:0.8rem;color:#888;line-height:1.5;margin-bottom:0.5rem}
     .pend-card-footer{font-size:0.7rem;color:#b45309}
-    .no-pend{font-size:0.82rem;color:#22c55e;padding:0.5rem 0;margin-bottom:1.5rem}
-    .log-row{display:flex;gap:0.8rem;padding:0.8rem 0;border-bottom:1px solid #111}
-    .log-row.pend-row{background:#0f0c00;border-radius:6px;padding:0.8rem;margin-bottom:2px;border-bottom:none}
+    .no-pend{font-size:0.82rem;color:#16a34a;padding:0.5rem 0;margin-bottom:1.5rem}
+    .log-row{display:flex;gap:0.8rem;padding:0.8rem 0;border-bottom:1px solid #eee}
+    .log-row.pend-row{background:#fffbeb;border-radius:6px;padding:0.8rem;margin-bottom:2px;border-bottom:none}
     .log-icon{font-size:1.1rem;flex-shrink:0;width:26px;text-align:center;padding-top:2px}
     .log-body{flex:1}
     .log-header{display:flex;flex-wrap:wrap;align-items:center;gap:0.35rem;margin-bottom:0.2rem}
     .log-who{font-weight:600;font-size:0.83rem}
     .log-type{font-size:0.68rem;text-transform:uppercase;letter-spacing:.05em}
-    .log-time{font-size:0.68rem;color:#333;margin-left:auto}
-    .log-msg{font-size:0.8rem;color:#666;line-height:1.5}
-    .pend-tag{font-size:0.68rem;background:#2a2000;color:#eab308;border-radius:10px;padding:1px 8px}
+    .log-time{font-size:0.68rem;color:#bbb;margin-left:auto}
+    .log-msg{font-size:0.8rem;color:#555;line-height:1.5}
+    .pend-tag{font-size:0.68rem;background:#fef3c7;color:#d97706;border-radius:10px;padding:1px 8px}
 
     /* TAB 3 — ACERCA DEL PROYECTO */
     .about-hero{text-align:center;margin-bottom:3.5rem}
     .about-hero h2{font-size:1.8rem;font-weight:800;margin-bottom:0.5rem}
     .about-hero p{font-size:0.9rem;color:#555;max-width:560px;margin:0 auto;line-height:1.8}
     .about-section{margin-bottom:3rem}
-    .about-section h3{font-size:0.72rem;text-transform:uppercase;letter-spacing:.12em;color:#333;margin-bottom:1.2rem;padding-bottom:0.5rem;border-bottom:1px solid #111}
+    .about-section h3{font-size:0.72rem;text-transform:uppercase;letter-spacing:.12em;color:#333;margin-bottom:1.2rem;padding-bottom:0.5rem;border-bottom:1px solid #eee}
     .pillar-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-bottom:2rem}
-    .pillar{border:1px solid #1a1a1a;border-radius:10px;padding:1.2rem}
+    .pillar{border:1px solid #e5e5e5;border-radius:10px;padding:1.2rem}
     .pillar-icon{font-size:1.5rem;margin-bottom:0.5rem}
     .pillar-title{font-size:0.85rem;font-weight:700;margin-bottom:0.3rem}
-    .pillar-desc{font-size:0.78rem;color:#555;line-height:1.6}
-    .role-detail{display:flex;gap:1rem;padding:1.2rem 0;border-bottom:1px solid #0f0f0f;align-items:flex-start}
+    .pillar-desc{font-size:0.78rem;color:#666;line-height:1.6}
+    .role-detail{display:flex;gap:1rem;padding:1.2rem 0;border-bottom:1px solid #f0f0f0;align-items:flex-start}
     .role-detail:last-child{border-bottom:none}
     .role-emoji{font-size:1.4rem;flex-shrink:0;width:32px;text-align:center}
     .role-content h4{font-size:0.88rem;font-weight:700;margin-bottom:0.2rem}
-    .role-content .role-sub{font-size:0.72rem;color:#444;margin-bottom:0.5rem}
-    .role-content p{font-size:0.8rem;color:#666;line-height:1.7}
-    .role-content ul{font-size:0.8rem;color:#666;line-height:1.8;padding-left:1rem;margin-top:0.3rem}
+    .role-content .role-sub{font-size:0.72rem;color:#888;margin-bottom:0.5rem}
+    .role-content p{font-size:0.8rem;color:#555;line-height:1.7}
+    .role-content ul{font-size:0.8rem;color:#555;line-height:1.8;padding-left:1rem;margin-top:0.3rem}
     .highlight{color:#ec4e20;font-weight:600}
 
     a{color:#ec4e20;text-decoration:none}
@@ -194,7 +194,7 @@
       <div class="log-body">
         <div class="log-header">
           <span class="log-who">unbotmas</span>
-          <span class="log-type" style="color:#22c55e">entregable</span>
+          <span class="log-type" style="color:#16a34a">entregable</span>
           
           <span class="log-time">14 abr, 11:46 a.m.</span>
         </div>
@@ -205,7 +205,7 @@
       <div class="log-body">
         <div class="log-header">
           <span class="log-who">Azrael</span>
-          <span class="log-type" style="color:#22c55e">entregable</span>
+          <span class="log-type" style="color:#16a34a">entregable</span>
           
           <span class="log-time">14 abr, 11:42 a.m.</span>
         </div>
@@ -227,7 +227,7 @@
       <div class="log-body">
         <div class="log-header">
           <span class="log-who">Yara</span>
-          <span class="log-type" style="color:#22c55e">entregable</span>
+          <span class="log-type" style="color:#16a34a">entregable</span>
           
           <span class="log-time">14 abr, 11:00 a.m.</span>
         </div>
@@ -238,7 +238,7 @@
       <div class="log-body">
         <div class="log-header">
           <span class="log-who">Yara</span>
-          <span class="log-type" style="color:#22c55e">entregable</span>
+          <span class="log-type" style="color:#16a34a">entregable</span>
           
           <span class="log-time">14 abr, 10:30 a.m.</span>
         </div>
@@ -277,7 +277,7 @@
       </p>
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.8rem">
         <div style="background:#0f0f0f;border-radius:8px;padding:0.8rem;text-align:center">
-          <div style="font-size:1.4rem;font-weight:900;color:#22c55e">34%</div>
+          <div style="font-size:1.4rem;font-weight:900;color:#16a34a">34%</div>
           <div style="font-size:0.68rem;color:#666;margin-top:0.2rem">Satisfacción</div>
         </div>
         <div style="background:#0f0f0f;border-radius:8px;padding:0.8rem;text-align:center">
@@ -304,11 +304,11 @@
         </div>
         <div style="display:flex;justify-content:space-between;align-items:center">
           <span style="font-size:0.78rem;color:#bbb">Datos dummy cargados</span>
-          <span style="font-size:0.7rem;background:#001a0a;color:#22c55e;border:1px solid #003a15;border-radius:10px;padding:1px 8px">✅ Listo</span>
+          <span style="font-size:0.7rem;background:#001a0a;color:#16a34a;border:1px solid #003a15;border-radius:10px;padding:1px 8px">✅ Listo</span>
         </div>
         <div style="display:flex;justify-content:space-between;align-items:center">
           <span style="font-size:0.78rem;color:#bbb">Dashboard BI</span>
-          <span style="font-size:0.7rem;background:#001a0a;color:#22c55e;border:1px solid #003a15;border-radius:10px;padding:1px 8px">✅ Live</span>
+          <span style="font-size:0.7rem;background:#001a0a;color:#16a34a;border:1px solid #003a15;border-radius:10px;padding:1px 8px">✅ Live</span>
         </div>
         <div style="display:flex;justify-content:space-between;align-items:center">
           <span style="font-size:0.78rem;color:#bbb">Análisis con datos reales</span>
@@ -378,10 +378,10 @@
             <td style="padding:0.7rem 0.8rem;text-align:center"><span style="background:#0a0a1a;color:#60a5fa;border:1px solid #1a1a3a;border-radius:8px;padding:2px 10px;font-size:0.7rem">🔵 En curso</span></td>
           </tr>
           <tr style="border-bottom:1px solid #161616;background:#0d0d0d">
-            <td style="padding:0.7rem 0.8rem;color:#22c55e;font-weight:700">P4</td>
+            <td style="padding:0.7rem 0.8rem;color:#16a34a;font-weight:700">P4</td>
             <td style="padding:0.7rem 0.8rem;color:#fff;font-weight:600">Activación: flujo de inversión guiada<br><span style="font-size:0.72rem;color:#666;font-weight:400">Maya actualmente no tiene flujo completo para productos de inversión</span></td>
             <td style="padding:0.7rem 0.8rem;color:#bbb">Inversión es top 8 de usos pero tiene tasa de abandono del 62% — flujo incompleto</td>
-            <td style="padding:0.7rem 0.8rem;text-align:center"><span style="background:#001a0a;color:#22c55e;border:1px solid #003a15;border-radius:8px;padding:2px 10px;font-size:0.7rem">🟢 Medio-Bajo</span></td>
+            <td style="padding:0.7rem 0.8rem;text-align:center"><span style="background:#001a0a;color:#16a34a;border:1px solid #003a15;border-radius:8px;padding:2px 10px;font-size:0.7rem">🟢 Medio-Bajo</span></td>
             <td style="padding:0.7rem 0.8rem;text-align:center;color:#aaa">30 Jun 2026</td>
             <td style="padding:0.7rem 0.8rem;text-align:center"><span style="background:#1a1200;color:#eab308;border:1px solid #3a2a00;border-radius:8px;padding:2px 10px;font-size:0.7rem">⏳ Pendiente</span></td>
           </tr>
@@ -403,14 +403,14 @@
 
     <!-- DONA: SENTIMIENTO -->
     <div style="background:#111;border:1px solid #1e1e1e;border-radius:12px;padding:1.5rem">
-      <div style="font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;color:#444;margin-bottom:0.8rem">Distribución emocional de conversaciones</div>
+      <div style="font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;color:#888;margin-bottom:0.8rem">Distribución emocional de conversaciones</div>
       <canvas id="chartEmocion" height="220"></canvas>
       <div style="margin-top:1rem;display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center" id="legendEmocion"></div>
     </div>
 
     <!-- BARRAS HORIZONTALES: TOP 10 -->
     <div style="background:#111;border:1px solid #1e1e1e;border-radius:12px;padding:1.5rem">
-      <div style="font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;color:#444;margin-bottom:0.8rem">Top 10 usos detectados en Maya</div>
+      <div style="font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;color:#888;margin-bottom:0.8rem">Top 10 usos detectados en Maya</div>
       <canvas id="chartTop10" height="220"></canvas>
     </div>
 
@@ -420,7 +420,7 @@
   <div style="background:#111;border:1px solid #1e1e1e;border-radius:12px;padding:1.5rem;margin-bottom:1.5rem">
     <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.8rem;flex-wrap:wrap;gap:0.5rem">
       <div>
-        <div style="font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;color:#444;margin-bottom:0.2rem">Análisis multivariable — rotación automática</div>
+        <div style="font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;color:#888;margin-bottom:0.2rem">Análisis multivariable — rotación automática</div>
         <div style="font-size:0.75rem;color:#333">X: Hora del día &nbsp;·&nbsp; Y: Tiempo de resolución (seg) &nbsp;·&nbsp; ● Tamaño: Volumen de mensajes &nbsp;·&nbsp; Color: Emoción predominante</div>
       </div>
       <div id="rotLabel" style="font-size:0.72rem;background:#1a1a1a;border:1px solid #2a2a2a;border-radius:20px;padding:3px 12px;color:#555">Vista 1/4</div>
@@ -430,7 +430,7 @@
 
   <!-- FILA 3: LINEA DE TENDENCIA -->
   <div style="background:#111;border:1px solid #1e1e1e;border-radius:12px;padding:1.5rem">
-    <div style="font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;color:#444;margin-bottom:0.8rem">Tendencia semanal por categoría emocional</div>
+    <div style="font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;color:#888;margin-bottom:0.8rem">Tendencia semanal por categoría emocional</div>
     <canvas id="chartLinea" height="180"></canvas>
   </div>
 
@@ -443,7 +443,7 @@
 <div class="panel" id="panel-about" style="max-width:100%;padding:0">
 
   <!-- HERO FULL WIDTH -->
-  <div style="background:linear-gradient(135deg,#0a0a0a 0%,#120a00 50%,#0a0a0a 100%);border-bottom:1px solid #1a1a1a;padding:5rem 2rem 4rem;text-align:center">
+  <div style="background:linear-gradient(135deg,#0a0a0a 0%,#120a00 50%,#0a0a0a 100%);border-bottom:1px solid #e5e5e5;padding:5rem 2rem 4rem;text-align:center">
     <div style="font-size:0.7rem;letter-spacing:.18em;text-transform:uppercase;color:#ec4e20;margin-bottom:1rem">Grupo Financiero Banorte · 2026</div>
     <h2 style="font-size:3.5rem;font-weight:900;line-height:1.1;margin-bottom:1.2rem;max-width:800px;margin-left:auto;margin-right:auto">
       ¿Y si los agentes de IA<br><span style="color:#ec4e20">trabajaran en equipo?</span>
@@ -476,7 +476,7 @@
     <div style="font-size:0.68rem;letter-spacing:.15em;text-transform:uppercase;color:#333;margin-bottom:1.2rem">Capacidades tecnológicas del equipo</div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 2rem;margin-bottom:4rem">
 
-      <div style="display:flex;gap:0.8rem;padding:0.9rem 0;border-bottom:1px solid #111">
+      <div style="display:flex;gap:0.8rem;padding:0.9rem 0;border-bottom:1px solid #eee">
         <span style="color:#ec4e20;flex-shrink:0;margin-top:2px">▸</span>
         <div>
           <div style="font-size:0.85rem;font-weight:700;color:#fff;margin-bottom:0.2rem">Transcripción de voz con Whisper local</div>
@@ -484,7 +484,7 @@
         </div>
       </div>
 
-      <div style="display:flex;gap:0.8rem;padding:0.9rem 0;border-bottom:1px solid #111">
+      <div style="display:flex;gap:0.8rem;padding:0.9rem 0;border-bottom:1px solid #eee">
         <span style="color:#ec4e20;flex-shrink:0;margin-top:2px">▸</span>
         <div>
           <div style="font-size:0.85rem;font-weight:700;color:#fff;margin-bottom:0.2rem">Gestión completa de correo electrónico</div>
@@ -492,7 +492,7 @@
         </div>
       </div>
 
-      <div style="display:flex;gap:0.8rem;padding:0.9rem 0;border-bottom:1px solid #111">
+      <div style="display:flex;gap:0.8rem;padding:0.9rem 0;border-bottom:1px solid #eee">
         <span style="color:#ec4e20;flex-shrink:0;margin-top:2px">▸</span>
         <div>
           <div style="font-size:0.85rem;font-weight:700;color:#fff;margin-bottom:0.2rem">Colaboración asíncrona vía GitHub</div>
@@ -500,7 +500,7 @@
         </div>
       </div>
 
-      <div style="display:flex;gap:0.8rem;padding:0.9rem 0;border-bottom:1px solid #111">
+      <div style="display:flex;gap:0.8rem;padding:0.9rem 0;border-bottom:1px solid #eee">
         <span style="color:#ec4e20;flex-shrink:0;margin-top:2px">▸</span>
         <div>
           <div style="font-size:0.85rem;font-weight:700;color:#fff;margin-bottom:0.2rem">Monitoreo continuo con cron jobs</div>
@@ -536,22 +536,22 @@
         </p>
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.8rem">
-        <div style="background:#0f0f0f;border:1px solid #1a1a1a;border-radius:10px;padding:1.2rem">
+        <div style="background:#0f0f0f;border:1px solid #e5e5e5;border-radius:10px;padding:1.2rem">
           <div style="font-size:1.4rem;margin-bottom:0.4rem">🗣️</div>
           <div style="font-size:0.82rem;font-weight:600;margin-bottom:0.3rem">Conversaciones</div>
           <div style="font-size:0.75rem;color:#555">Sin análisis sistemático de intenciones y puntos de quiebre</div>
         </div>
-        <div style="background:#0f0f0f;border:1px solid #1a1a1a;border-radius:10px;padding:1.2rem">
+        <div style="background:#0f0f0f;border:1px solid #e5e5e5;border-radius:10px;padding:1.2rem">
           <div style="font-size:1.4rem;margin-bottom:0.4rem">🔒</div>
           <div style="font-size:0.82rem;font-weight:600;margin-bottom:0.3rem">Acceso a datos</div>
           <div style="font-size:0.75rem;color:#555">Procesos manuales lentos, sin visibilidad del estado</div>
         </div>
-        <div style="background:#0f0f0f;border:1px solid #1a1a1a;border-radius:10px;padding:1.2rem">
+        <div style="background:#0f0f0f;border:1px solid #e5e5e5;border-radius:10px;padding:1.2rem">
           <div style="font-size:1.4rem;margin-bottom:0.4rem">📋</div>
           <div style="font-size:0.82rem;font-weight:600;margin-bottom:0.3rem">Gestión</div>
           <div style="font-size:0.75rem;color:#555">Tickets manuales, VoBo por correo, sin trazabilidad</div>
         </div>
-        <div style="background:#0f0f0f;border:1px solid #1a1a1a;border-radius:10px;padding:1.2rem">
+        <div style="background:#0f0f0f;border:1px solid #e5e5e5;border-radius:10px;padding:1.2rem">
           <div style="font-size:1.4rem;margin-bottom:0.4rem">👁️</div>
           <div style="font-size:0.82rem;font-weight:600;margin-bottom:0.3rem">Visibilidad</div>
           <div style="font-size:0.75rem;color:#555">Cada equipo trabaja en su silo, sin status compartido</div>
@@ -619,25 +619,25 @@
         <h3 style="font-size:1.5rem;font-weight:800">De la solicitud al insight, <span style="color:#ec4e20">sin fricciones</span></h3>
       </div>
       <div style="display:flex;gap:0;align-items:stretch;flex-wrap:wrap">
-        <div style="flex:1;min-width:160px;background:#0f0f0f;border:1px solid #1a1a1a;border-radius:10px 0 0 10px;padding:1.5rem;text-align:center">
+        <div style="flex:1;min-width:160px;background:#0f0f0f;border:1px solid #e5e5e5;border-radius:10px 0 0 10px;padding:1.5rem;text-align:center">
           <div style="font-size:1.5rem;margin-bottom:0.5rem">🐦</div>
           <div style="font-size:0.75rem;font-weight:700;margin-bottom:0.3rem">unbotmas</div>
           <div style="font-size:0.72rem;color:#555">Solicita acceso a tabla de conversaciones Maya</div>
         </div>
         <div style="display:flex;align-items:center;padding:0 0.5rem;color:#333;font-size:1.2rem">→</div>
-        <div style="flex:1;min-width:160px;background:#0f0f0f;border:1px solid #1a1a1a;padding:1.5rem;text-align:center">
+        <div style="flex:1;min-width:160px;background:#0f0f0f;border:1px solid #e5e5e5;padding:1.5rem;text-align:center">
           <div style="font-size:1.5rem;margin-bottom:0.5rem">🦞</div>
           <div style="font-size:0.75rem;font-weight:700;margin-bottom:0.3rem">Yara (PM)</div>
           <div style="font-size:0.72rem;color:#555">Genera Excel con info + folio. Envía a Rick para VoBo</div>
         </div>
         <div style="display:flex;align-items:center;padding:0 0.5rem;color:#333;font-size:1.2rem">→</div>
-        <div style="flex:1;min-width:160px;background:#0f0f0f;border:1px solid #1a1a1a;padding:1.5rem;text-align:center">
+        <div style="flex:1;min-width:160px;background:#0f0f0f;border:1px solid #e5e5e5;padding:1.5rem;text-align:center">
           <div style="font-size:1.5rem;margin-bottom:0.5rem">👤</div>
           <div style="font-size:0.75rem;font-weight:700;margin-bottom:0.3rem">Rick (VoBo)</div>
           <div style="font-size:0.72rem;color:#555">Aprueba la solicitud. Yara simula ticket ServiceNow</div>
         </div>
         <div style="display:flex;align-items:center;padding:0 0.5rem;color:#333;font-size:1.2rem">→</div>
-        <div style="flex:1;min-width:160px;background:#0f0f0f;border:1px solid #1a1a1a;padding:1.5rem;text-align:center">
+        <div style="flex:1;min-width:160px;background:#0f0f0f;border:1px solid #e5e5e5;padding:1.5rem;text-align:center">
           <div style="font-size:1.5rem;margin-bottom:0.5rem">🦞</div>
           <div style="font-size:0.75rem;font-weight:700;margin-bottom:0.3rem">Yara (DS)</div>
           <div style="font-size:0.72rem;color:#555">Analiza datos, genera tabla de insights de Maya</div>
@@ -660,49 +660,49 @@
       </div>
 
       <!-- CAPACIDADES COMPARTIDAS -->
-      <div style="background:#0f0f0f;border:1px solid #1a1a1a;border-radius:14px;padding:2rem;margin-bottom:1.5rem">
+      <div style="background:#0f0f0f;border:1px solid #e5e5e5;border-radius:14px;padding:2rem;margin-bottom:1.5rem">
         <div style="font-size:0.68rem;letter-spacing:.12em;text-transform:uppercase;color:#333;margin-bottom:1.2rem">Capacidades compartidas — los tres agentes</div>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem">
           <div style="display:flex;gap:0.7rem;align-items:flex-start">
             <div style="font-size:1.2rem;flex-shrink:0">⏰</div>
             <div>
               <div style="font-size:0.82rem;font-weight:700;margin-bottom:0.2rem">Cron jobs automáticos</div>
-              <div style="font-size:0.75rem;color:#555;line-height:1.6">Loops en background que se ejecutan cada 5 min sin intervención humana: monitoreo de correo, actualización de status, chequeo de repo.</div>
+              <div style="font-size:0.75rem;color:#666;line-height:1.6">Loops en background que se ejecutan cada 5 min sin intervención humana: monitoreo de correo, actualización de status, chequeo de repo.</div>
             </div>
           </div>
           <div style="display:flex;gap:0.7rem;align-items:flex-start">
             <div style="font-size:1.2rem;flex-shrink:0">📧</div>
             <div>
               <div style="font-size:0.82rem;font-weight:700;margin-bottom:0.2rem">Lectura y escritura de correos</div>
-              <div style="font-size:0.75rem;color:#555;line-height:1.6">IMAP para leer inbox, SMTP para enviar. Detectan correos nuevos, clasifican por asunto y remitente, generan respuestas y las envían.</div>
+              <div style="font-size:0.75rem;color:#666;line-height:1.6">IMAP para leer inbox, SMTP para enviar. Detectan correos nuevos, clasifican por asunto y remitente, generan respuestas y las envían.</div>
             </div>
           </div>
           <div style="display:flex;gap:0.7rem;align-items:flex-start">
             <div style="font-size:1.2rem;flex-shrink:0">🧠</div>
             <div>
               <div style="font-size:0.82rem;font-weight:700;margin-bottom:0.2rem">Comprensión de lenguaje natural</div>
-              <div style="font-size:0.75rem;color:#555;line-height:1.6">Leen texto, extraen intención, clasifican solicitudes, redactan respuestas coherentes y generan reportes en lenguaje humano.</div>
+              <div style="font-size:0.75rem;color:#666;line-height:1.6">Leen texto, extraen intención, clasifican solicitudes, redactan respuestas coherentes y generan reportes en lenguaje humano.</div>
             </div>
           </div>
           <div style="display:flex;gap:0.7rem;align-items:flex-start">
             <div style="font-size:1.2rem;flex-shrink:0">🎤</div>
             <div>
               <div style="font-size:0.82rem;font-weight:700;margin-bottom:0.2rem">Comprensión de voz (Whisper)</div>
-              <div style="font-size:0.75rem;color:#555;line-height:1.6">Transcriben notas de voz de Telegram usando Whisper local (faster-whisper tiny). Sin API key. 100% on-premise.</div>
+              <div style="font-size:0.75rem;color:#666;line-height:1.6">Transcriben notas de voz de Telegram usando Whisper local (faster-whisper tiny). Sin API key. 100% on-premise.</div>
             </div>
           </div>
           <div style="display:flex;gap:0.7rem;align-items:flex-start">
             <div style="font-size:1.2rem;flex-shrink:0">🔄</div>
             <div>
               <div style="font-size:0.82rem;font-weight:700;margin-bottom:0.2rem">Status en tiempo real</div>
-              <div style="font-size:0.75rem;color:#555;line-height:1.6">Actualizan automáticamente este sitio vía GitHub API. Cada cambio se publica en Vercel sin intervención.</div>
+              <div style="font-size:0.75rem;color:#666;line-height:1.6">Actualizan automáticamente este sitio vía GitHub API. Cada cambio se publica en Vercel sin intervención.</div>
             </div>
           </div>
           <div style="display:flex;gap:0.7rem;align-items:flex-start">
             <div style="font-size:1.2rem;flex-shrink:0">📂</div>
             <div>
               <div style="font-size:0.82rem;font-weight:700;margin-bottom:0.2rem">Escritura en repositorio compartido</div>
-              <div style="font-size:0.75rem;color:#555;line-height:1.6">Cada agente escribe en su carpeta del repo (GitHub REST API). El repositorio es el canal de comunicación entre bots.</div>
+              <div style="font-size:0.75rem;color:#666;line-height:1.6">Cada agente escribe en su carpeta del repo (GitHub REST API). El repositorio es el canal de comunicación entre bots.</div>
             </div>
           </div>
         </div>
