@@ -2,14 +2,11 @@
 const REPO = "jorge-jrzz/claw-compartido";
 const FILE_PATH = "data/gastos-yorch.json";
 
-function parseText(text) {
-  const short = text.match(/apple pay en (.+?),\s*gaste\s*\$?([\d,.]+)/i);
-  if (short) return { comercio: short[1].trim(), monto: parseFloat(short[2].replace(",", "")) };
-  const comercio = text.match(/comercio[:\s]+(.+)/i)?.[1]?.trim();
-  const monto = text.match(/monto[:\s]+\$?([\d,.]+)/i)?.[1]?.replace(",", "");
-  const categoria = text.match(/categor[ií]a[:\s]+(.+)/i)?.[1]?.trim();
-  if (comercio && monto) return { comercio, monto: parseFloat(monto), categoria };
-  return null;
+function parseMonto(val) {
+  if (val == null) return null;
+  const clean = String(val).replace(/[^0-9.]/g, "");
+  const n = parseFloat(clean);
+  return isNaN(n) ? null : n;
 }
 
 async function getFile(token) {
@@ -43,17 +40,23 @@ module.exports = async function handler(req, res) {
   if (!token) return res.status(500).json({ error: "GITHUB_TOKEN not configured" });
 
   const body = req.body || {};
-  let gasto;
 
-  if (body.text) {
-    const parsed = parseText(body.text);
-    if (!parsed) return res.status(400).json({ error: "No se pudo parsear: " + body.text });
-    gasto = { ...parsed, categoria: body.categoria || "Otros", nota: body.nota || "" };
-  } else if (body.comercio && body.monto != null) {
-    gasto = { comercio: body.comercio, monto: parseFloat(body.monto), categoria: body.categoria || "Otros", nota: body.nota || "" };
-  } else {
-    return res.status(400).json({ error: "Faltan campos", received: body });
+  // Debug: log what we received
+  const received = { comercio: body.comercio, monto: body.monto, card: body.card, categoria: body.categoria };
+
+  const comercio = body.comercio ? String(body.comercio).trim() : null;
+  const monto = parseMonto(body.monto);
+
+  if (!comercio || monto === null) {
+    return res.status(400).json({ error: "Faltan campos válidos", received });
   }
+
+  const gasto = {
+    comercio,
+    monto,
+    categoria: body.categoria || "Otros",
+    nota: body.card ? `Tarjeta: ${body.card}` : (body.nota || "")
+  };
 
   try {
     const { content, sha } = await getFile(token);
