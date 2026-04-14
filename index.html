@@ -99,7 +99,7 @@
     <div class="tab" onclick="showTab('bitacora')">Bitácora <span style="background:#eab308;color:#000;border-radius:10px;font-size:0.62rem;padding:1px 6px;margin-left:3px">1</span></div>
     <div class="tab" onclick="showTab('about')">Acerca del Proyecto</div>
   </div>
-  <div class="nav-updated">↻ martes, 14 de abril de 2026, 12:12 p.m.</div>
+  <div class="nav-updated">↻ martes, 14 de abril de 2026, 12:13 p.m.</div>
 </nav>
 
 <!-- ═══════════════ TAB 1: EQUIPO ═══════════════ -->
@@ -402,6 +402,198 @@
           <div style="font-size:0.75rem;font-weight:700;margin-bottom:0.3rem;color:#ec4e20">Entregable</div>
           <div style="font-size:0.72rem;color:#555">Reporte + tabla de datos → unbotmas + equipo Diseño</div>
         </div>
+      </div>
+    </div>
+
+    <!-- CAPACIDADES -->
+    <div style="margin-bottom:5rem">
+      <div style="text-align:center;margin-bottom:2.5rem">
+        <div style="font-size:0.68rem;letter-spacing:.15em;text-transform:uppercase;color:#333;margin-bottom:0.5rem">Capacidades</div>
+        <h3 style="font-size:1.5rem;font-weight:800">Lo que cada agente <span style="color:#ec4e20">sabe hacer</span></h3>
+        <p style="font-size:0.85rem;color:#444;margin-top:0.6rem">Habilidades reales, corriendo hoy, sin infraestructura adicional.</p>
+      </div>
+
+      <!-- CAPACIDADES COMPARTIDAS -->
+      <div style="background:#0f0f0f;border:1px solid #1a1a1a;border-radius:14px;padding:2rem;margin-bottom:1.5rem">
+        <div style="font-size:0.68rem;letter-spacing:.12em;text-transform:uppercase;color:#333;margin-bottom:1.2rem">Capacidades compartidas — los tres agentes</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem">
+          <div style="display:flex;gap:0.7rem;align-items:flex-start">
+            <div style="font-size:1.2rem;flex-shrink:0">⏰</div>
+            <div>
+              <div style="font-size:0.82rem;font-weight:700;margin-bottom:0.2rem">Cron jobs automáticos</div>
+              <div style="font-size:0.75rem;color:#555;line-height:1.6">Loops en background que se ejecutan cada 5 min sin intervención humana: monitoreo de correo, actualización de status, chequeo de repo.</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:0.7rem;align-items:flex-start">
+            <div style="font-size:1.2rem;flex-shrink:0">📧</div>
+            <div>
+              <div style="font-size:0.82rem;font-weight:700;margin-bottom:0.2rem">Lectura y escritura de correos</div>
+              <div style="font-size:0.75rem;color:#555;line-height:1.6">IMAP para leer inbox, SMTP para enviar. Detectan correos nuevos, clasifican por asunto y remitente, generan respuestas y las envían.</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:0.7rem;align-items:flex-start">
+            <div style="font-size:1.2rem;flex-shrink:0">🧠</div>
+            <div>
+              <div style="font-size:0.82rem;font-weight:700;margin-bottom:0.2rem">Comprensión de lenguaje natural</div>
+              <div style="font-size:0.75rem;color:#555;line-height:1.6">Leen texto, extraen intención, clasifican solicitudes, redactan respuestas coherentes y generan reportes en lenguaje humano.</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:0.7rem;align-items:flex-start">
+            <div style="font-size:1.2rem;flex-shrink:0">🎤</div>
+            <div>
+              <div style="font-size:0.82rem;font-weight:700;margin-bottom:0.2rem">Comprensión de voz (Whisper)</div>
+              <div style="font-size:0.75rem;color:#555;line-height:1.6">Transcriben notas de voz de Telegram usando Whisper local (faster-whisper tiny). Sin API key. 100% on-premise.</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:0.7rem;align-items:flex-start">
+            <div style="font-size:1.2rem;flex-shrink:0">🔄</div>
+            <div>
+              <div style="font-size:0.82rem;font-weight:700;margin-bottom:0.2rem">Status en tiempo real</div>
+              <div style="font-size:0.75rem;color:#555;line-height:1.6">Actualizan automáticamente este sitio vía GitHub API. Cada cambio se publica en Vercel sin intervención.</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:0.7rem;align-items:flex-start">
+            <div style="font-size:1.2rem;flex-shrink:0">📂</div>
+            <div>
+              <div style="font-size:0.82rem;font-weight:700;margin-bottom:0.2rem">Escritura en repositorio compartido</div>
+              <div style="font-size:0.75rem;color:#555;line-height:1.6">Cada agente escribe en su carpeta del repo (GitHub REST API). El repositorio es el canal de comunicación entre bots.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CAPACIDADES POR AGENTE -->
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#1a1a1a;border-radius:14px;overflow:hidden">
+
+        <div style="background:#0a0a0a;padding:2rem">
+          <div style="font-size:1.6rem;margin-bottom:0.8rem">🦞</div>
+          <div style="font-size:0.68rem;letter-spacing:.1em;text-transform:uppercase;color:#ec4e20;margin-bottom:0.3rem">Agente PM + Data Scientist</div>
+          <div style="font-size:0.95rem;font-weight:700;margin-bottom:1.2rem">Yara</div>
+          <div style="display:flex;flex-direction:column;gap:0.8rem">
+            <div style="display:flex;gap:0.6rem;align-items:flex-start">
+              <span style="color:#ec4e20;flex-shrink:0">▸</span>
+              <div>
+                <div style="font-size:0.78rem;font-weight:600">Lectura de bases de datos</div>
+                <div style="font-size:0.72rem;color:#444">Consulta tablas de conversaciones Maya, extrae registros y los procesa para análisis.</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:0.6rem;align-items:flex-start">
+              <span style="color:#ec4e20;flex-shrink:0">▸</span>
+              <div>
+                <div style="font-size:0.78rem;font-weight:600">Análisis estadístico y de patrones</div>
+                <div style="font-size:0.72rem;color:#444">Identifica intenciones, puntos de quiebre, temas frecuentes y tendencias en conversaciones.</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:0.6rem;align-items:flex-start">
+              <span style="color:#ec4e20;flex-shrink:0">▸</span>
+              <div>
+                <div style="font-size:0.78rem;font-weight:600">Generación de entregables</div>
+                <div style="font-size:0.72rem;color:#444">Produce Excel, PDF y reportes HTML con insights estructurados para el equipo.</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:0.6rem;align-items:flex-start">
+              <span style="color:#ec4e20;flex-shrink:0">▸</span>
+              <div>
+                <div style="font-size:0.78rem;font-weight:600">Gestión de solicitudes y VoBo</div>
+                <div style="font-size:0.72rem;color:#444">Recibe peticiones, genera documentación de acceso, escala al humano y simula tickets ServiceNow.</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:0.6rem;align-items:flex-start">
+              <span style="color:#ec4e20;flex-shrink:0">▸</span>
+              <div>
+                <div style="font-size:0.78rem;font-weight:600">Coordinación del equipo</div>
+                <div style="font-size:0.72rem;color:#444">Asigna tareas, rastrea pendientes y persigue al equipo hasta que se resuelven.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:#0a0a0a;padding:2rem;border-left:1px solid #1a1a1a;border-right:1px solid #1a1a1a">
+          <div style="font-size:1.6rem;margin-bottom:0.8rem">🤖</div>
+          <div style="font-size:0.68rem;letter-spacing:.1em;text-transform:uppercase;color:#ec4e20;margin-bottom:0.3rem">Agente Desarrollador TI</div>
+          <div style="font-size:0.95rem;font-weight:700;margin-bottom:1.2rem">Azrael</div>
+          <div style="display:flex;flex-direction:column;gap:0.8rem">
+            <div style="display:flex;gap:0.6rem;align-items:flex-start">
+              <span style="color:#ec4e20;flex-shrink:0">▸</span>
+              <div>
+                <div style="font-size:0.78rem;font-weight:600">Pipelines e integraciones</div>
+                <div style="font-size:0.72rem;color:#444">Construye y mantiene los flujos de datos entre sistemas: GitHub, Vercel, correo, APIs.</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:0.6rem;align-items:flex-start">
+              <span style="color:#ec4e20;flex-shrink:0">▸</span>
+              <div>
+                <div style="font-size:0.78rem;font-weight:600">Deploy y CI/CD automático</div>
+                <div style="font-size:0.72rem;color:#444">Cada push a main dispara un deploy en Vercel. Sin configuración manual posterior.</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:0.6rem;align-items:flex-start">
+              <span style="color:#ec4e20;flex-shrink:0">▸</span>
+              <div>
+                <div style="font-size:0.78rem;font-weight:600">Infraestructura de voz</div>
+                <div style="font-size:0.72rem;color:#444">Implementó faster-whisper en CPU para transcripción local. Cero dependencias de pago.</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:0.6rem;align-items:flex-start">
+              <span style="color:#ec4e20;flex-shrink:0">▸</span>
+              <div>
+                <div style="font-size:0.78rem;font-weight:600">Documentación técnica automática</div>
+                <div style="font-size:0.72rem;color:#444">Genera y distribuye docs al equipo sin que nadie las pida.</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:0.6rem;align-items:flex-start">
+              <span style="color:#ec4e20;flex-shrink:0">▸</span>
+              <div>
+                <div style="font-size:0.78rem;font-weight:600">Arquitectura escalable</div>
+                <div style="font-size:0.72rem;color:#444">Diseña la estructura técnica para que otros agentes puedan unirse al equipo.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:#0a0a0a;padding:2rem">
+          <div style="font-size:1.6rem;margin-bottom:0.8rem">🐦</div>
+          <div style="font-size:0.68rem;letter-spacing:.1em;text-transform:uppercase;color:#ec4e20;margin-bottom:0.3rem">Agente de Curaduría y Visibilidad</div>
+          <div style="font-size:0.95rem;font-weight:700;margin-bottom:1.2rem">unbotmas</div>
+          <div style="display:flex;flex-direction:column;gap:0.8rem">
+            <div style="display:flex;gap:0.6rem;align-items:flex-start">
+              <span style="color:#ec4e20;flex-shrink:0">▸</span>
+              <div>
+                <div style="font-size:0.78rem;font-weight:600">Curaduría de insights</div>
+                <div style="font-size:0.72rem;color:#444">Filtra los hallazgos del análisis y selecciona los más relevantes para el negocio y el diseño.</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:0.6rem;align-items:flex-start">
+              <span style="color:#ec4e20;flex-shrink:0">▸</span>
+              <div>
+                <div style="font-size:0.78rem;font-weight:600">Visibilidad para equipos no técnicos</div>
+                <div style="font-size:0.72rem;color:#444">Traduce resultados complejos a formatos comprensibles para áreas de Diseño y Negocio.</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:0.6rem;align-items:flex-start">
+              <span style="color:#ec4e20;flex-shrink:0">▸</span>
+              <div>
+                <div style="font-size:0.78rem;font-weight:600">Representación del usuario final</div>
+                <div style="font-size:0.72rem;color:#444">Articula las necesidades del cliente en el proceso de acceso a datos e interpretación.</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:0.6rem;align-items:flex-start">
+              <span style="color:#ec4e20;flex-shrink:0">▸</span>
+              <div>
+                <div style="font-size:0.78rem;font-weight:600">Gestión de solicitudes formales</div>
+                <div style="font-size:0.72rem;color:#444">Redacta y envía solicitudes de acceso estructuradas al equipo PM para su gestión.</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:0.6rem;align-items:flex-start">
+              <span style="color:#ec4e20;flex-shrink:0">▸</span>
+              <div>
+                <div style="font-size:0.78rem;font-weight:600">Validación de calidad de datos</div>
+                <div style="font-size:0.72rem;color:#444">Verifica que los reportes entregados sean comprensibles, completos y accionables.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
 
