@@ -1,6 +1,19 @@
 // Vercel Serverless Function — registra gastos Apple Pay
 const REPO = "jorge-jrzz/claw-compartido";
 const FILE_PATH = "data/gastos-yorch.json";
+const BOT_TOKEN = "8053108844:AAHoYXITiiS9mLWgIeNIf5ANfjNaJaCEjDM";
+const CHAT_ID = "1341397907";
+
+async function notifyTelegram(gasto) {
+  const emojis = { Comida: "🍔", Café: "☕", Transport: "🚗", Super: "🛒", Otros: "💳" };
+  const emoji = emojis[gasto.categoria] || "💳";
+  const msg = `${emoji} *${gasto.comercio}*\n💵 $${gasto.monto.toFixed(2)} MXN — ${gasto.categoria}${gasto.nota ? '\n📝 ' + gasto.nota : ''}`;
+  await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ chat_id: CHAT_ID, text: msg, parse_mode: "Markdown" })
+  });
+}
 
 function parseMonto(val) {
   if (val == null) return null;
@@ -64,6 +77,7 @@ module.exports = async function handler(req, res) {
     const nuevo = { id: content.gastos.length + 1, fecha: new Date().toISOString(), ...gasto, fuente: "apple_pay" };
     content.gastos.push(nuevo);
     const status = await pushFile(token, content, sha, `💳 ${gasto.comercio} $${gasto.monto}`);
+    await notifyTelegram(nuevo);
     return res.status(200).json({ ok: true, gasto: nuevo, github: status });
   } catch (e) {
     return res.status(500).json({ error: e.message });
