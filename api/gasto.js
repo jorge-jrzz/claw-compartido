@@ -1,18 +1,13 @@
 // Vercel Serverless Function — registra gastos Apple Pay
 // POST /api/gasto  { text: "apple pay en Starbucks, gaste $85.00" }
-// o               { comercio: "Starbucks", monto: 85.00, categoria: "Café" }
 
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const REPO = "jorge-jrzz/claw-compartido";
 const FILE_PATH = "data/gastos-yorch.json";
 
 function parseText(text) {
-  // Formato corto: "apple pay en [comercio], gaste $[monto]"
   const short = text.match(/apple pay en (.+?),\s*gaste\s*\$?([\d,.]+)/i);
-  if (short) {
-    return { comercio: short[1].trim(), monto: parseFloat(short[2].replace(",", "")) };
-  }
-  // Formato clave:valor
+  if (short) return { comercio: short[1].trim(), monto: parseFloat(short[2].replace(",", "")) };
   const comercio = text.match(/comercio[:\s]+(.+)/i)?.[1]?.trim();
   const monto = text.match(/monto[:\s]+\$?([\d,.]+)/i)?.[1]?.replace(",", "");
   const categoria = text.match(/categor[ií]a[:\s]+(.+)/i)?.[1]?.trim();
@@ -25,12 +20,13 @@ async function getFile() {
     headers: { Authorization: `token ${GITHUB_TOKEN}`, Accept: "application/vnd.github.v3+json" }
   });
   const d = await r.json();
-  const content = JSON.parse(Buffer.from(d.content, "base64").toString());
+  const decoded = Buffer.from(d.content.replace(/\n/g, ""), "base64").toString("utf-8");
+  const content = JSON.parse(decoded);
   return { content, sha: d.sha };
 }
 
 async function pushFile(content, sha, msg) {
-  const encoded = Buffer.from(JSON.stringify(content, null, 2)).toString("base64");
+  const encoded = Buffer.from(JSON.stringify(content, null, 2), "utf-8").toString("base64");
   const r = await fetch(`https://api.github.com/repos/${REPO}/contents/${FILE_PATH}`, {
     method: "PUT",
     headers: {
@@ -44,38 +40,36 @@ async function pushFile(content, sha, msg) {
 }
 
 export default async function handler(req, res) {
-  // CORS
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
   if (req.method === "OPTIONS") return res.status(200).end();
   if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed" });
 
-  const body = req.body;
+  const body = req.body || {};
   let gasto;
 
   if (body.text) {
     const parsed = parseText(body.text);
-    if (!parsed) return res.status(400).json({ error: "No se pudo parsear el texto" });
+    if (!parsed) return res.status(400).json({ error: "No se pudo parsear el texto: " + body.text });
     gasto = { ...parsed, categoria: parsed.categoria || body.categoria || "Otros", nota: body.nota || "" };
-  } else if (body.comercio && body.monto) {
+  } else if (body.comercio && body.monto != null) {
     gasto = { comercio: body.comercio, monto: parseFloat(body.monto), categoria: body.categoria || "Otros", nota: body.nota || "" };
   } else {
-    return res.status(400).json({ error: "Faltan comercio y monto" });
+    return res.status(400).json({ error: "Faltan campos: necesito text o (comercio + monto)", received: body });
   }
 
   try {
     const { content, sha } = await getFile();
+    content.gastos = content.gastos || [];
     const nuevo = {
-      id: (content.gastos?.length || 0) + 1,
+      id: content.gastos.length + 1,
       fecha: new Date().toISOString(),
       ...gasto,
       fuente: "apple_pay"
     };
-    content.gastos = content.gastos || [];
     content.gastos.push(nuevo);
-
-    const status = await pushFile(content, sha, `💳 Azrael: ${gasto.comercio} $${gasto.monto}`);
+    const status = await pushFile(content, sha, `💳 ${gasto.comercio} $${gasto.monto}`);
     return res.status(200).json({ ok: true, gasto: nuevo, github: status });
   } catch (e) {
     return res.status(500).json({ error: e.message });
