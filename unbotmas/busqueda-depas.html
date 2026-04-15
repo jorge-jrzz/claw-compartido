@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🏠 Búsqueda de Depas — Viridiana</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f5; color: #1a1a1a; min-height: 100vh; padding: 2rem 1rem; }
+    .container { max-width: 680px; margin: 0 auto; }
+    h1 { font-size: 1.6rem; font-weight: 800; margin-bottom: 0.3rem; }
+    .subtitle { font-size: 0.85rem; color: #666; margin-bottom: 2rem; }
+    .filtros { background: white; border-radius: 14px; padding: 1.2rem 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+    .filtros h2 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: .1em; color: #999; margin-bottom: 0.8rem; }
+    .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .tag { background: #f0f0f0; border-radius: 20px; padding: 0.3rem 0.9rem; font-size: 0.82rem; color: #333; }
+    .tag.red { background: #fee2e2; color: #991b1b; }
+    .tag.green { background: #dcfce7; color: #166534; }
+    .portal { background: white; border-radius: 14px; padding: 1.2rem 1.5rem; margin-bottom: 1rem; box-shadow: 0 1px 4px rgba(0,0,0,0.08); display: flex; align-items: center; justify-content: space-between; gap: 1rem; text-decoration: none; color: inherit; transition: box-shadow 0.2s, transform 0.2s; }
+    .portal:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.12); transform: translateY(-2px); }
+    .portal-info { display: flex; align-items: center; gap: 1rem; }
+    .portal-emoji { font-size: 2rem; flex-shrink: 0; }
+    .portal-name { font-size: 1rem; font-weight: 700; margin-bottom: 0.2rem; }
+    .portal-desc { font-size: 0.78rem; color: #666; }
+    .portal-btn { background: #1a1a1a; color: white; border-radius: 20px; padding: 0.4rem 1.1rem; font-size: 0.8rem; font-weight: 600; white-space: nowrap; flex-shrink: 0; }
+    .zona-section { margin-bottom: 1rem; }
+    .zona-section h2 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: .1em; color: #999; margin-bottom: 0.6rem; padding-left: 0.2rem; }
+    .zonas { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.6rem; }
+    .zona-link { background: white; border-radius: 10px; padding: 0.8rem 1rem; text-decoration: none; color: #333; font-size: 0.85rem; font-weight: 500; box-shadow: 0 1px 3px rgba(0,0,0,0.07); display: flex; align-items: center; gap: 0.5rem; transition: box-shadow 0.15s; }
+    .zona-link:hover { box-shadow: 0 3px 10px rgba(0,0,0,0.12); }
+    .footer { text-align: center; font-size: 0.72rem; color: #aaa; margin-top: 2rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🏠 Búsqueda de Depas</h1>
+    <p class="subtitle">Links directos con tus filtros · generado por Botcito 🐦‍🔥</p>
+
+    <!-- Filtros -->
+    <div class="filtros">
+      <h2>Tus criterios</h2>
+      <div class="tags">
+        <span class="tag">📍 CDMX Poniente / Reforma</span>
+        <span class="tag green">💰 Máx $40,000/mes</span>
+        <span class="tag green">📐 Mín 70 m²</span>
+        <span class="tag green">🚗 Estacionamiento obligatorio</span>
+        <span class="tag red">❌ Evitar Santa Fe</span>
+      </div>
+    </div>
+
+    <!-- Portales principales -->
+    <a class="portal" href="https://inmuebles.mercadolibre.com.mx/departamentos/renta/ciudad-de-mexico/_PriceRange_1MXN-40000MXN" target="_blank">
+      <div class="portal-info">
+        <div class="portal-emoji">🛒</div>
+        <div>
+          <div class="portal-name">MercadoLibre Inmuebles</div>
+          <div class="portal-desc">Filtrado por precio máx $40,000 · CDMX</div>
+        </div>
+      </div>
+      <div class="portal-btn">Abrir →</div>
+    </a>
+
+    <a class="portal" href="https://www.lamudi.com.mx/distrito-federal/for-rent/?price=0,40000&livingarea=70,99999&parking=1" target="_blank">
+      <div class="portal-info">
+        <div class="portal-emoji">🏡</div>
+        <div>
+          <div class="portal-name">Lamudi</div>
+          <div class="portal-desc">Con estacionamiento · 70m²+ · Máx $40,000</div>
+        </div>
+      </div>
+      <div class="portal-btn">Abrir →</div>
+    </a>
+
+    <a class="portal" href="https://www.facebook.com/marketplace/cdmx/propertiesrentals" target="_blank">
+      <div class="portal-info">
+        <div class="portal-emoji">📘</div>
+        <div>
+          <div class="portal-name">Facebook Marketplace</div>
+          <div class="portal-desc">Requiere sesión activa · Filtra manualmente</div>
+        </div>
+      </div>
+      <div class="portal-btn">Abrir →</div>
+    </a>
+
+    <a class="portal" href="https://www.vivanuncios.com.mx/s-departamentos-en-renta/ciudad-de-mexico/v1c1l10235p1" target="_blank">
+      <div class="portal-info">
+        <div class="portal-emoji">🏘️</div>
+        <div>
+          <div class="portal-name">Vivanuncios</div>
+          <div class="portal-desc">Departamentos en renta · CDMX</div>
+        </div>
+      </div>
+      <div class="portal-btn">Abrir →</div>
+    </a>
+
+    <!-- Por zona en Inmuebles24 -->
+    <div class="zona-section" style="margin-top:1.5rem">
+      <h2>Inmuebles24 por zona</h2>
+      <div class="zonas">
+        <a class="zona-link" href="https://www.inmuebles24.com/departamentos-en-renta-en-polanco-cdmx.html" target="_blank">📍 Polanco</a>
+        <a class="zona-link" href="https://www.inmuebles24.com/departamentos-en-renta-en-la-condesa-cdmx.html" target="_blank">📍 Condesa</a>
+        <a class="zona-link" href="https://www.inmuebles24.com/departamentos-en-renta-en-roma-norte-cdmx.html" target="_blank">📍 Roma Norte</a>
+        <a class="zona-link" href="https://www.inmuebles24.com/departamentos-en-renta-en-narvarte-poniente-cdmx.html" target="_blank">📍 Narvarte</a>
+        <a class="zona-link" href="https://www.inmuebles24.com/departamentos-en-renta-en-anzures-cdmx.html" target="_blank">📍 Anzures</a>
+        <a class="zona-link" href="https://www.inmuebles24.com/departamentos-en-renta-en-escandon-cdmx.html" target="_blank">📍 Escandón</a>
+        <a class="zona-link" href="https://www.inmuebles24.com/departamentos-en-renta-en-del-valle-cdmx.html" target="_blank">📍 Del Valle</a>
+        <a class="zona-link" href="https://www.inmuebles24.com/departamentos-en-renta-en-napoles-cdmx.html" target="_blank">📍 Nápoles</a>
+        <a class="zona-link" href="https://www.inmuebles24.com/departamentos-en-renta-en-san-miguel-chapultepec-cdmx.html" target="_blank">📍 San Miguel Chapultepec</a>
+        <a class="zona-link" href="https://www.inmuebles24.com/departamentos-en-renta-en-lomas-de-chapultepec-cdmx.html" target="_blank">📍 Lomas de Chapultepec</a>
+      </div>
+    </div>
+
+    <div class="footer">
+      Cuando encuentres algo que te guste, mándale el link a Botcito y lo analiza 🐦‍🔥
+    </div>
+  </div>
+</body>
+</html>
