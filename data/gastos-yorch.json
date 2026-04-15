@@ -44,6 +44,15 @@
       "categoria": "Transporte",
       "nota": "",
       "fuente": "apple_pay"
+    },
+    {
+      "id": 6,
+      "fecha": "2026-04-15T22:15:17.918Z",
+      "comercio": "Cine",
+      "monto": 456,
+      "categoria": "Entretenimiento",
+      "nota": "",
+      "fuente": "apple_pay"
     }
   ]
 }
