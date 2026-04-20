@@ -1,8 +1,26 @@
-// Vercel Serverless Function — registra gastos Apple Pay
+/**
+ * ARCHIVED CODE — Vercel Serverless Function
+ *
+ * Purpose: Apple Pay expense tracking with Telegram notifications
+ * Status: Reference implementation only
+ * Security: Credentials moved to environment variables during archival (2026-04-20)
+ *
+ * Original functionality:
+ * - Receives Apple Pay transaction webhooks
+ * - Stores expenses in GitHub (data/gastos-yorch.json)
+ * - Sends Telegram notifications
+ * - Auto-commits to repository
+ *
+ * Last active: April 2026
+ */
+
 const REPO = "jorge-jrzz/claw-compartido";
 const FILE_PATH = "data/gastos-yorch.json";
-const BOT_TOKEN = "8053108844:AAHoYXITiiS9mLWgIeNIf5ANfjNaJaCEjDM";
-const CHAT_ID = "1341397907";
+
+// SECURITY: Credentials moved to environment variables for archival
+// Original hardcoded values removed on 2026-04-20
+const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
+const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 
 async function notifyTelegram(gasto) {
   const emojis = { Comida: "🍔", Café: "☕", Transport: "🚗", Super: "🛒", Otros: "💳" };
@@ -52,7 +70,14 @@ module.exports = async function handler(req, res) {
   if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed" });
 
   const token = process.env.GITHUB_TOKEN;
+
+  // Validate required environment variables
   if (!token) return res.status(500).json({ error: "GITHUB_TOKEN not configured" });
+  if (!BOT_TOKEN || !CHAT_ID) {
+    return res.status(500).json({
+      error: "TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID not configured"
+    });
+  }
 
   const body = req.body || {};
   const comercio = body.comercio ? String(body.comercio).trim() : null;

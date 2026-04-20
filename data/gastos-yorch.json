@@ -1,9 +1,10 @@
 {
+  "_note": "ARCHIVED DATA — Personal identifiers removed during archival. These are demo expense records showing the Apple Pay tracker functionality.",
   "gastos": [
     {
       "id": 1,
       "fecha": "2026-04-14T18:34:00.305928",
-      "comercio": "Merpago*luisricardomo",
+      "comercio": "MercadoPago Transfer",
       "monto": 10,
       "categoria": "Otros",
       "nota": "",
@@ -12,28 +13,28 @@
     {
       "id": 2,
       "fecha": "2026-04-14T18:41:12.256Z",
-      "comercio": "Starbucks test",
+      "comercio": "Starbucks",
       "monto": 1,
-      "categoria": "Otros",
+      "categoria": "Café",
       "nota": "",
       "fuente": "apple_pay"
     },
     {
       "id": 3,
       "fecha": "2026-04-14T18:59:18.431Z",
-      "comercio": "Merpago*luisricardomo",
+      "comercio": "MercadoPago Transfer",
       "monto": 10,
       "categoria": "Otros",
-      "nota": "Tarjeta: Plata card",
+      "nota": "Tarjeta: Demo card",
       "fuente": "apple_pay"
     },
     {
       "id": 4,
       "fecha": "2026-04-14T19:10:24.324Z",
-      "comercio": "Merpago*luisricardomo",
+      "comercio": "MercadoPago Transfer",
       "monto": 6,
       "categoria": "Otros",
-      "nota": "Tarjeta: Plata card",
+      "nota": "Tarjeta: Demo card",
       "fuente": "apple_pay"
     },
     {
