@@ -1,6 +1,24 @@
 """
-EDA Maya Analytics — Banorte Claw (Yara) — Data Scientist
-Genera PDF con insights estadísticos para el equipo de BI (Viri/unbotmas)
+ARCHIVED CODE — Maya Analytics EDA Script
+
+Purpose: Analyze Banorte Maya virtual assistant conversations
+Agent: Yara (Banorte Claw) — PM & Data Scientist
+Status: Reference implementation only
+
+Generates PDF reports with:
+- Conversation statistics and distribution by channel
+- CSAT (Customer Satisfaction) analysis by intent
+- Sentiment analysis (positivo, neutro, negativo)
+- Watson confidence score distributions
+- Peak usage patterns and conversation duration metrics
+- Top intents and resolution rates
+
+⚠️ IMPORTANT: Uses DUMMY/SIMULATED data generated for hackathon demo
+- NOT real customer data
+- NOT actual Banorte conversations
+- Generated for testing analytics pipeline only
+
+Last run: April 2026 (Hackathon)
 """
 import csv
 import math
